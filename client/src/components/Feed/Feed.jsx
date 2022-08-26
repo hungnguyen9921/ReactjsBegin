@@ -1,8 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import BackGround from '../../assests/images/background01.jpg';
 import SvgIcon from '../../svg/index';
 import { faListUl } from '@fortawesome/free-solid-svg-icons';
+import Slideshow from '../Slideshow/Slideshow';
 import './Feed.css';
 export default function Feed() {
       return (
@@ -195,9 +195,7 @@ export default function Feed() {
                                     </div>
                               </div>
                               <div className="feed-column feed-col-66">
-                                    <div className="feed-column__wrap">
-                                          <img src={BackGround} alt="" />
-                                    </div>
+                                    <Slideshow></Slideshow>
                               </div>
                               <div className="feed-column feed-col-33">
                                     <div className="feed-column__wrap">
