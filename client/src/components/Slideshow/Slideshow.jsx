@@ -25,42 +25,37 @@ export default function Slideshow() {
       }, [Index]);
       return (
             <div className="slideshow">
-                  <div className="feed-column__wrap">
-                        <div className="slideshow-image">
-                              <div
-                                    className="slideshow-slider"
-                                    style={{ transform: `translate3d(${-Index * 100}%, 0, 0)` }}
-                              >
-                                    <div className="slide">
-                                          {Images.map((BackgroundImage, Index) => (
-                                                <img
-                                                      src={BackgroundImage}
-                                                      key={Index}
-                                                      alt="info"
-                                                ></img>
-                                          ))}
-                                    </div>
-                              </div>
-                              <div className="slideshowDots">
-                                    {Images.map((_, Idx) => (
-                                          <div
-                                                key={Idx}
-                                                className={`slideshowDot ${
-                                                      Index === Idx ? ' active' : ''
-                                                }`}
-                                                onClick={() => {
-                                                      setIndex(Idx);
-                                                }}
-                                          ></div>
+                  <div className="slideshow-image">
+                        <div
+                              className="slideshow-slider"
+                              style={{ transform: `translate3d(${-Index * 100}%, 0, 0)` }}
+                        >
+                              <div className="slide tw-inline-block">
+                                    {Images.map((BackgroundImage, Index) => (
+                                          <img src={BackgroundImage} key={Index} alt="info"></img>
                                     ))}
                               </div>
                         </div>
-                        <div className="slideshow__background">
-                              {Cakes.map((Cake, cakeIndex) => (
-                                    <img src={Cake} key={cakeIndex} alt="info"></img>
+                        <div className="slideshowDots">
+                              {Images.map((_, Idx) => (
+                                    <div
+                                          key={Idx}
+                                          className={`slideshowDot ${
+                                                Index === Idx ? ' active' : ''
+                                          }`}
+                                          onClick={() => {
+                                                setIndex(Idx);
+                                          }}
+                                    ></div>
                               ))}
                         </div>
                   </div>
+                  <div className="slideshow__background">
+                        {Cakes.map((Cake, cakeIndex) => (
+                              <img src={Cake} key={cakeIndex} alt="info"></img>
+                        ))}
+                  </div>
             </div>
+            // </div>
       );
 }

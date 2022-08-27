@@ -3,13 +3,13 @@
 }
 .slideshow-image {
       margin-bottom: 10px;
-      height: 60%;
+      height: 75%;
       width: 100%;
       position: relative;
       overflow: hidden;
 }
 .slideshow__background {
-      height: 20%;
+      height: 25%;
       width: 100%;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -32,9 +32,10 @@
       z-index: 999;
       bottom: 20px;
       left: 50%;
+      transform: translateX(-50%);
 }
 .slideshowDot.active {
-      background-color: #ff6900;
+      background-color: #ffa11a;
 }
 .slideshowDot {
       display: inline-block;

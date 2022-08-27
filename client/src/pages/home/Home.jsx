@@ -1,6 +1,7 @@
 import React from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import Feed from '../../components/Feed/Feed';
+import MainProduct from '../../components/Product/MainProduct';
 import { useContext, useEffect, useState } from 'react';
 import { FaCartArrowDown, FaTruck, FaUser } from 'react-icons/fa';
 import Logo from '../../assests/images/logo.png';
@@ -28,7 +29,7 @@ function Home() {
                                                 type="text"
                                                 name="search"
                                                 placeholder="Search"
-                                                className="search-form__input"
+                                                className="search-form__input tw-border-amber-600 tw-border-2"
                                           />
                                     </form>
                               </div>
@@ -75,6 +76,7 @@ function Home() {
                         </div>
                   </div>
                   <Feed />
+                  <MainProduct />
             </div>
       );
 }
