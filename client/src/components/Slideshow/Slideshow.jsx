@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Images, Cakes } from '../../assests/images/images';
-import './Slideshow.css';
 
 export default function Slideshow() {
       const [Index, setIndex] = useState(0);
@@ -24,24 +23,30 @@ export default function Slideshow() {
             };
       }, [Index]);
       return (
-            <div className="slideshow">
-                  <div className="slideshow-image">
+            <div className="h-full">
+                  <div className="mb-[10px] h-3/4 w-full relative overflow-hidden">
                         <div
-                              className="slideshow-slider"
+                              className="ease-in-out duration-1000 w-full h-full whitespace-nowrap"
                               style={{ transform: `translate3d(${-Index * 100}%, 0, 0)` }}
                         >
-                              <div className="slide tw-inline-block">
+                              <div className="h-full w-full">
                                     {Images.map((BackgroundImage, Index) => (
-                                          <img src={BackgroundImage} key={Index} alt="info"></img>
+                                          <div className="inline-block h-full w-full">
+                                                <img
+                                                      src={BackgroundImage}
+                                                      key={Index}
+                                                      alt="info"
+                                                ></img>
+                                          </div>
                                     ))}
                               </div>
                         </div>
-                        <div className="slideshowDots">
+                        <div className="translate-x-[-1/2] absolute bottom-[20px] z-50 left-1/2 ">
                               {Images.map((_, Idx) => (
                                     <div
                                           key={Idx}
-                                          className={`slideshowDot ${
-                                                Index === Idx ? ' active' : ''
+                                          className={`inline-block h-[15px] w-[15px] rounded-full cursor-pointer mx-[7px] ${
+                                                Index === Idx ? 'bg-[#ffa11a]' : 'bg-white'
                                           }`}
                                           onClick={() => {
                                                 setIndex(Idx);
@@ -50,12 +55,11 @@ export default function Slideshow() {
                               ))}
                         </div>
                   </div>
-                  <div className="slideshow__background">
+                  <div className="h-1/4 w-full grid grid-cols-4 gap-[10px]">
                         {Cakes.map((Cake, cakeIndex) => (
                               <img src={Cake} key={cakeIndex} alt="info"></img>
                         ))}
                   </div>
             </div>
-            // </div>
       );
 }

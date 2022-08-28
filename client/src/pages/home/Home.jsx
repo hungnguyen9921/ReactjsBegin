@@ -5,7 +5,6 @@ import MainProduct from '../../components/Product/MainProduct';
 import { useContext, useEffect, useState } from 'react';
 import { FaCartArrowDown, FaTruck, FaUser } from 'react-icons/fa';
 import Logo from '../../assests/images/logo.png';
-import './Home.css';
 function Home() {
       const { user: currentUser } = useContext(AuthContext);
       const [name, Setname] = useState('');
@@ -18,55 +17,55 @@ function Home() {
       }, []);
       return (
             <div>
-                  <div className="home-container">
-                        <div className="home-container__inner">
-                              <div className="logo-home">
+                  <div className="bg-white py-[10px] shadow-3xl">
+                        <div className="max-w-8xl flex mx-auto items-center">
+                              <div className="px-[15px]">
                                     <img src={Logo} alt={'Logo'} className="logo" />
                               </div>
-                              <div className="home-container__search">
+                              <div className="px-[15px] w-[600px]">
                                     <form action="" method="post" className="search-form">
                                           <input
                                                 type="text"
                                                 name="search"
                                                 placeholder="Search"
-                                                className="search-form__input tw-border-amber-600 tw-border-2"
+                                                className="pl-[10px] rounded border-amber-600 border-2 w-full h-[42px]"
                                           />
                                     </form>
                               </div>
 
-                              <div className="main-home">
+                              <div className="px-[15px] cursor-pointer text-sm ">
                                     <div className="main-home__container">
-                                          <ul id="menu-menu-wishlist-compare" className="menu">
-                                                <li className="yith-woocompare-open has-icon menu-my-compare">
+                                          <ul id="menu-menu-wishlist-compare" className="flex">
+                                                <li className="flex mr-[20px] max-w-[150px] align-top">
                                                       <a
                                                             className="item-link elementor-item"
                                                             href="#"
                                                       >
-                                                            <FaTruck className="main-home__icon" />
+                                                            <FaTruck className="text-4xl" />
                                                       </a>
-                                                      <span className="menu-title">
+                                                      <span className="text-[#666] pl-[10px] font-medium">
                                                             Theo dõi Đơn hàng
                                                       </span>
                                                 </li>
-                                                <li className="has-icon menu-my-wishlist">
+                                                <li className="flex mr-[20px] max-w-[150px] align-top">
                                                       <a
                                                             className="item-link elementor-item"
                                                             href="https://demo.wpthemego.com/themes/sw_emarket/layout3/wishlist/"
                                                       >
-                                                            <FaUser className="main-home__icon" />
+                                                            <FaUser className="text-4xl" />
                                                       </a>
-                                                      <span className="menu-title">
+                                                      <span className="text-[#666] pl-[10px] font-medium">
                                                             Đăng nhập Tài khoản
                                                       </span>
                                                 </li>
-                                                <li className="has-icon menu-my-wishlist">
+                                                <li className="flex mr-[20px] max-w-[150px] align-top">
                                                       <a
                                                             className="item-link elementor-item"
                                                             href="https://demo.wpthemego.com/themes/sw_emarket/layout3/wishlist/"
                                                       >
-                                                            <FaCartArrowDown className="main-home__icon" />
+                                                            <FaCartArrowDown className="text-4xl" />
                                                       </a>
-                                                      <span className="menu-title">
+                                                      <span className="text-[#666] pl-[10px] font-medium">
                                                             Giỏ hàng của bạn
                                                       </span>
                                                 </li>
