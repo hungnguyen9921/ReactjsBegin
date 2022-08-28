@@ -1,31 +1,36 @@
-const express = require('express');
-const cor = require('cors');
-const path = require('path');
+import express from "express";
+import products from "./data/Product.js";
+import cor from "cors";
+import path from "path";
+import dotenv from "dotenv";
+import connect from "./src/config/db/index.js";
+import userRoute from "./routers/userRoute.js";
+import AuthRoute from "./routers/authRoute.js";
 const app = express();
 const port = 8800;
 
-const dotenv = require('dotenv')
-dotenv.config()
-const db = require('./src/config/db');
+dotenv.config();
 
 // Connect to db//
-db.connect();
 
-app.use(express.urlencoded({
-  extended:true
-}));
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 app.use(express.json());
 app.use(cor());
 
 //// Router /////
-const userRoute = require('./routers/userRoute');
-const AuthRoute = require('./routers/AuthRoute')
 
 //// API ////
-app.use('/api/users', userRoute);
-app.use('/api/auth', AuthRoute);
+app.get("/api/products", (req, res) => {
+  res.json(products);
+});
+app.use("/api/users", userRoute);
+app.use("/api/auth", AuthRoute);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});

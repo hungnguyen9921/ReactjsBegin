@@ -17,7 +17,7 @@ function Home() {
       }, []);
       return (
             <div>
-                  <div className="bg-white py-[10px] shadow-3xl">
+                  <div className="bg-white py-[20px] shadow-3xl">
                         <div className="max-w-8xl flex mx-auto items-center">
                               <div className="px-[15px]">
                                     <img src={Logo} alt={'Logo'} className="logo" />

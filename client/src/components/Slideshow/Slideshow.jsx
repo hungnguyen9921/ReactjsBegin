@@ -24,7 +24,7 @@ export default function Slideshow() {
       }, [Index]);
       return (
             <div className="h-full">
-                  <div className="mb-[10px] h-3/4 w-full relative overflow-hidden">
+                  <div className="mb-[10px] h-3/4 w-full relative overflow-hidden rounded">
                         <div
                               className="ease-in-out duration-1000 w-full h-full whitespace-nowrap"
                               style={{ transform: `translate3d(${-Index * 100}%, 0, 0)` }}
@@ -36,6 +36,7 @@ export default function Slideshow() {
                                                       src={BackgroundImage}
                                                       key={Index}
                                                       alt="info"
+                                                      className="h-[100%] w-[100%] object-cover mx-auto rounded"
                                                 ></img>
                                           </div>
                                     ))}
@@ -57,7 +58,12 @@ export default function Slideshow() {
                   </div>
                   <div className="h-1/4 w-full grid grid-cols-4 gap-[10px]">
                         {Cakes.map((Cake, cakeIndex) => (
-                              <img src={Cake} key={cakeIndex} alt="info"></img>
+                              <img
+                                    src={Cake}
+                                    key={cakeIndex}
+                                    alt="info"
+                                    className="h-[100%] w-[100%] object-cover mx-auto rounded"
+                              ></img>
                         ))}
                   </div>
             </div>

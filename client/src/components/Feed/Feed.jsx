@@ -4,30 +4,32 @@ import { faListUl } from '@fortawesome/free-solid-svg-icons';
 import Slideshow from '../Slideshow/Slideshow';
 import RightSide from '../../assests/images/background-rightside.jpg';
 import { FeedData } from './FeedData';
-import './Feed.css';
 export default function Feed() {
       return (
-            <div className="feed">
-                  <div className="feed-row">
-                        <div className="feed-container">
-                              <div className="feed-column feed-col-33">
-                                    <div className="feed-column__wrap">
-                                          <div className="feed-column__container">
-                                                <div className="mega-left__title">
+            <div className="mt-[40px] pb-[40px]">
+                  <div className="max-w-8xl mx-auto pl-[10px] bg-white rounded shadow-3xl">
+                        <div className="flex">
+                              <div className="feed-column w-1/5 py-[20px] pr-[20px] pl-[20px] ">
+                                    <div className="flex flex-wrap content-start h-full">
+                                          <div>
+                                                <div className="text-[18px]">
                                                       <span>
                                                             <FontAwesomeIcon
                                                                   icon={faListUl}
-                                                                  className="margin-15px"
+                                                                  className="mr-[15px]"
                                                             />
                                                             DANH MỤC
                                                       </span>
                                                 </div>
-                                                <div className="mega-left__list">
+                                                <div className="text-[14px]">
                                                       <ul>
                                                             {FeedData.map((Feed, Index) => (
-                                                                  <li key={Index}>
-                                                                        <span className="have-title">
-                                                                              <span className="menu-img">
+                                                                  <li
+                                                                        key={Index}
+                                                                        className="cursor-pointer py-[10px] "
+                                                                  >
+                                                                        <span className="flex text-center opacity-100 visible relative translate-x-0 z-50 ease-out duration-500 hover:ease-out hover:translate-x-[40px] hover:text-[#ff6900]">
+                                                                              <span className="inline-block min-w-[20px] mr-[15px] ">
                                                                                     <img
                                                                                           src={
                                                                                                 Feed.icon
@@ -36,9 +38,10 @@ export default function Feed() {
                                                                                                 Index
                                                                                           }
                                                                                           alt="Smartphone"
+                                                                                          className="h-auto max-w-full mx-auto"
                                                                                     />
                                                                               </span>
-                                                                              <span className="name-title">
+                                                                              <span className="text-[14px]">
                                                                                     {Feed.title}
                                                                               </span>
                                                                         </span>
@@ -49,15 +52,15 @@ export default function Feed() {
                                           </div>
                                     </div>
                               </div>
-                              <div className="feed-column feed-col-66">
+                              <div className="w-3/5 h-[525px] pt-[20px] pb-[30px] pl-[20px]">
                                     <Slideshow></Slideshow>
                               </div>
-                              <div className="feed-column feed-col-33">
-                                    <div className="feed-column__wrap">
+                              <div className="w-1/5 py-[20px] pr-[30px] pl-[20px]">
+                                    <div className="flex flex-wrap content-start h-full">
                                           <img
                                                 src={RightSide}
                                                 alt="info"
-                                                className="rightside-img"
+                                                className="rounded w-full h-full object-cover"
                                           />
                                     </div>
                               </div>
