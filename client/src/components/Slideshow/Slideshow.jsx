@@ -31,7 +31,7 @@ export default function Slideshow() {
                         >
                               <div className="h-full w-full">
                                     {Images.map((BackgroundImage, Index) => (
-                                          <div className="inline-block h-full w-full">
+                                          <div className="inline-block h-full w-full" key={Index}>
                                                 <img
                                                       src={BackgroundImage}
                                                       key={Index}

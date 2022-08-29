@@ -6,7 +6,7 @@ import RightSide from '../../assests/images/background-rightside.jpg';
 import { FeedData } from './FeedData';
 export default function Feed() {
       return (
-            <div className="mt-[40px] pb-[40px]">
+            <div className="mt-[40px] pb-[30px]">
                   <div className="max-w-8xl mx-auto pl-[10px] bg-white rounded shadow-3xl">
                         <div className="flex">
                               <div className="feed-column w-1/5 py-[20px] pr-[20px] pl-[20px] ">

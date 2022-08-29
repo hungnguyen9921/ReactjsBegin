@@ -17,50 +17,54 @@ function Login() {
       return (
             <>
                   <Header />
-                  <div className="login-container">
-                        <div className="login">
-                              <div className="loginWrap">
-                                    <div className="loginLeft">
-                                          <h2 className="LoginLeftTitle">{status}</h2>
-                                          <p className="LoginLeftDes">
+                  <div className="relative flex bg-[#f6f6f6]">
+                        <div className="flex content-center items-center w-full h-[90vh] bg-[#f6f6f6] mx-auto relative pb-[72px]">
+                              <div className="flex w-[1200px] mx-auto">
+                                    <div className="pr-[48px] break-words max-w-1/2">
+                                          <h2 className="text-[32px] text-[#ee4d2d] leading-[57px] font-bold">
+                                                {status}
+                                          </h2>
+                                          <p className="text-[#666] text-[18px] leading-[24px] ">
                                                 Đăng nhập để theo dõi đơn hàng, danh sách sản phẩm
                                                 yêu thích, nhận nhiều ưu đãi hấp dẫn.
                                           </p>
                                           <img
-                                                className="loginLeft-Logo"
+                                                className="max-w-full h-auto"
                                                 src={LoginImg}
                                                 alt={'LoginImg'}
                                           ></img>
                                     </div>
-                                    <div className="loginRight">
-                                          <div className="auth-wrapper">
-                                                <div className="auth-grid">
+                                    <div className="max-w-1/2 pl-[100px]">
+                                          <div className="w-[500px] h-full bg-white shadow-3xl">
+                                                <div className="grid grid-cols-2 mb-[30px]">
                                                       <div
-                                                            className="text-login"
+                                                            className="cursor-pointer border border-gray-400"
                                                             onClick={handleClick1}
                                                       >
                                                             <h2
                                                                   style={{
                                                                         color:
                                                                               state === 'login'
-                                                                                    ? 'red'
-                                                                                    : 'black',
+                                                                                    ? 'black'
+                                                                                    : '#666',
                                                                   }}
+                                                                  className="ml-[20px] text-[28px] font-bold py-[10px]"
                                                             >
                                                                   Đăng Nhập
                                                             </h2>
                                                       </div>
                                                       <div
-                                                            className="text-login"
+                                                            className="cursor-pointer border border-gray-400"
                                                             onClick={handleClick}
                                                       >
                                                             <h2
                                                                   style={{
                                                                         color:
                                                                               state === 'signup'
-                                                                                    ? 'red'
-                                                                                    : 'black',
+                                                                                    ? 'black'
+                                                                                    : '#666',
                                                                   }}
+                                                                  className="ml-[20px] text-[28px] font-bold py-[10px]"
                                                             >
                                                                   Đăng Kí
                                                             </h2>

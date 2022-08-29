@@ -2,6 +2,9 @@ module.exports = {
       content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
       theme: {
             extend: {
+                  colors: {
+                        'regal-black': 'rgb(168, 165, 165)',
+                  },
                   width: {
                         '9/10': '90%',
                   },
