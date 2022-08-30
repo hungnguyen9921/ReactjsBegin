@@ -19,7 +19,7 @@ function Home() {
             <div>
                   <div className="bg-white py-[20px] shadow-3xl">
                         <div className="max-w-8xl flex mx-auto items-center">
-                              <div className="px-[15px]">
+                              <div className="px-[15px] cursor-pointer">
                                     <img src={Logo} alt={'Logo'} className="logo" />
                               </div>
                               <div className="px-[15px] w-[600px]">

@@ -1,16 +1,17 @@
 import express from "express";
-import products from "./data/Product.js";
 import cor from "cors";
 import path from "path";
 import dotenv from "dotenv";
 import connect from "./src/config/db/index.js";
 import userRoute from "./routers/userRoute.js";
 import AuthRoute from "./routers/authRoute.js";
+import productRoute from "./routers/productRoute.js";
+import ImportData from "./dataImported.js";
+
 const app = express();
-const port = 8800;
-
 dotenv.config();
-
+const PORT = process.env.PORT || 5000;
+connect();
 // Connect to db//
 
 app.use(
@@ -24,13 +25,18 @@ app.use(cor());
 
 //// Router /////
 
-//// API ////
-app.get("/api/products", (req, res) => {
-  res.json(products);
-});
+//// SINGLE PRODUCT ///
+
+app.use("/api/import", ImportData);
 app.use("/api/users", userRoute);
 app.use("/api/auth", AuthRoute);
+app.use("/api/products", productRoute);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.get("/api/products/:id", (req, res) => {
+  const product = products.find((p) => p.id === req.params.id);
+  res.json(product);
+});
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
 });

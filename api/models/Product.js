@@ -15,7 +15,6 @@ const reviewSchema = new mongoose.Schema({
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    require: true,
     ref: "User",
   },
 });
@@ -41,8 +40,8 @@ const UserSchema = new mongoose.Schema(
       required: true,
       default: 0,
     },
-    numReview: {
-      type: String,
+    numReviews: {
+      type: Number,
       required: true,
       max: 50,
     },
