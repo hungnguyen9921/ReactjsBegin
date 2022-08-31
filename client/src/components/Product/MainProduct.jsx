@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { MainProducts } from '../../assests/images/images';
 import axios from 'axios';
 export default function MainProduct() {
       const [products, setProducts] = useState([]);
@@ -19,27 +18,31 @@ export default function MainProduct() {
                               </div>
                         </div>
                         <div className="grid grid-cols-10 border-t border-l rounded">
-                              {products.map((product, Index) => (
-                                    <div
-                                          className="h-[160px] border-r border-b cursor-pointer"
-                                          key={Index}
-                                    >
-                                          <div className="flex flex-col justify-center items-center h-[100%]">
-                                                <div className="w-[70%] h-[70%] mt-[10px]">
-                                                      <div className="h-full">
-                                                            <img
-                                                                  src={product.image}
-                                                                  alt="#"
-                                                                  className="object-cover h-full w-full"
-                                                            />
+                              {products.map((product, Index) => {
+                                    if (product.numReviews == 0) {
+                                          return (
+                                                <div
+                                                      className="h-[160px] border-r border-b cursor-pointer"
+                                                      key={Index}
+                                                >
+                                                      <div className="flex flex-col justify-center items-center h-[100%]">
+                                                            <div className="w-[70%] h-[70%] mt-[10px]">
+                                                                  <div className="h-full">
+                                                                        <img
+                                                                              src={product.image}
+                                                                              alt="#"
+                                                                              className="object-cover h-full w-full"
+                                                                        />
+                                                                  </div>
+                                                            </div>
+                                                            <div className="w-full h-[30%] text-[16px] text-center ">
+                                                                  {product.name}
+                                                            </div>
                                                       </div>
                                                 </div>
-                                                <div className="w-full h-[30%] text-[16px] text-center ">
-                                                      {product.name}
-                                                </div>
-                                          </div>
-                                    </div>
-                              ))}
+                                          );
+                                    }
+                              })}
                         </div>
                   </div>
             </div>

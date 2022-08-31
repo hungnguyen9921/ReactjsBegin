@@ -14,7 +14,7 @@ const products = [
       },
     ],
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Điện thoại và phụ kiện",
@@ -24,7 +24,7 @@ const products = [
     price: 99,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Thiết Bị Điện Tử",
@@ -34,7 +34,7 @@ const products = [
     price: 89,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Máy Tính & Laptop",
@@ -44,7 +44,7 @@ const products = [
     price: 89,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Máy Ảnh & Máy Quay Phim",
@@ -54,7 +54,7 @@ const products = [
     price: 99,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Đồng Hồ",
@@ -64,7 +64,7 @@ const products = [
     price: 89,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Giày Dép Nam",
@@ -74,7 +74,7 @@ const products = [
     price: 89,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Thiết Bị Điện Gia Dụng",
@@ -84,7 +84,7 @@ const products = [
     price: 100,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Thể Thao & Du Lịch",
@@ -94,7 +94,7 @@ const products = [
     price: 99,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Ô tô, Xe Máy & Xe Đạp",
@@ -104,7 +104,7 @@ const products = [
     price: 89,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Balo ^ Túi Ví Nam",
@@ -114,7 +114,7 @@ const products = [
     price: 89,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Đồ Chơi",
@@ -124,7 +124,7 @@ const products = [
     price: 100,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Chăm Sóc Thú Cưng",
@@ -134,7 +134,7 @@ const products = [
     price: 99,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Nhà Cửa & Đời Sống",
@@ -144,7 +144,7 @@ const products = [
     price: 89,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Sắc Đẹp",
@@ -154,7 +154,7 @@ const products = [
     price: 89,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Sức Khỏe",
@@ -164,7 +164,7 @@ const products = [
     price: 99,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Túi Ví Nữ",
@@ -174,7 +174,7 @@ const products = [
     price: 89,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Voucher & Dịch Vụ",
@@ -184,7 +184,7 @@ const products = [
     price: 89,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Nhà Sách Online",
@@ -194,7 +194,7 @@ const products = [
     price: 89,
     countInstock: 3,
     rating: 4,
-    numReviews: 4,
+    numReviews: 0,
   },
   {
     name: "Bách Hóa Online",
@@ -202,6 +202,106 @@ const products = [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 89,
+    countInstock: 3,
+    rating: 4,
+    numReviews: 0,
+  },
+  {
+    name: "Điện Thoại iPhone 13 64GB - Hàng Chính Hãng",
+    image: "./images/iphone-13-blue-1-600x600.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 89,
+    countInstock: 3,
+    rating: 4,
+    numReviews: 4,
+  },
+  {
+    name: "Điện Thoại Samsung Galaxy - Z-Fold",
+    image: "./images/samsung-galaxy-z-fold-3-silver-1-600x600.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 4490000,
+    countInstock: 3,
+    rating: 4,
+    numReviews: 4,
+  },
+  {
+    name: "Siêu Trí Nhớ - Sách Bán Chạy Tháng 12",
+    image: "./images/sieutrinho-book.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 4490000,
+    countInstock: 3,
+    rating: 4,
+    numReviews: 4,
+  },
+  {
+    name: "Đồng Hồ Samsung Galaxy Watch5 Pro ",
+    image: "./images/samsung-galaxy-watch5-pro-xam-thumbn-600x600.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 4490000,
+    countInstock: 3,
+    rating: 4,
+    numReviews: 4,
+  },
+  {
+    name: "Sách Target",
+    image: "./images/target-book.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 4490000,
+    countInstock: 3,
+    rating: 4,
+    numReviews: 4,
+  },
+  {
+    name: "Điện Thoại Oppo A55 - 4GB",
+    image: "./images/oppo-a55-4g-thumb-new-600x600.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 89,
+    countInstock: 3,
+    rating: 4,
+    numReviews: 4,
+  },
+  {
+    name: "Điện Thoại Redmi 10",
+    image: "./images/redmi-10-gray-600x600.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 4490000,
+    countInstock: 3,
+    rating: 4,
+    numReviews: 4,
+  },
+  {
+    name: "Loa Bluetooth JBL Clip 4",
+    image: "./images/loa-bluetooth.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 4490000,
+    countInstock: 3,
+    rating: 4,
+    numReviews: 4,
+  },
+  {
+    name: "Bộ Lau Nhà 360 Độ Sunhouse Ks-CI350PQ",
+    image: "./images/clean-house.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 4490000,
+    countInstock: 3,
+    rating: 4,
+    numReviews: 4,
+  },
+  {
+    name: "Xiaomi Redmi Note 11",
+    image: "./images/redmi-note11.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 4490000,
     countInstock: 3,
     rating: 4,
     numReviews: 4,

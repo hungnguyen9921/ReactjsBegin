@@ -4,9 +4,9 @@ import path from "path";
 import dotenv from "dotenv";
 import connect from "./src/config/db/index.js";
 import userRoute from "./routers/userRoute.js";
-import AuthRoute from "./routers/authRoute.js";
+import authRoute from "./routers/authRoute.js";
 import productRoute from "./routers/productRoute.js";
-import ImportData from "./dataImported.js";
+import ImportData from "./routers/dataImported.js";
 
 const app = express();
 dotenv.config();
@@ -29,7 +29,7 @@ app.use(cor());
 
 app.use("/api/import", ImportData);
 app.use("/api/users", userRoute);
-app.use("/api/auth", AuthRoute);
+app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
 
 app.get("/api/products/:id", (req, res) => {

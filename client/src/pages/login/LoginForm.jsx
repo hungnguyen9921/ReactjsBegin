@@ -1,4 +1,5 @@
 import React, { useRef, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { loginCall } from '../../context/useAuth';
 import { AuthContext } from '../../context/AuthProvider';
 export function LoginForm() {
@@ -43,7 +44,9 @@ export function LoginForm() {
                                           />
                                           <span className="checkbox-label">Nhớ mật khẩu</span>
                                     </label>
-                                    <a href="#">Quên mật khẩu?</a>
+                                    <Link to={`/home`}>
+                                          <a href="#">Quên mật khẩu?</a>
+                                    </Link>
                               </div>
                               <div className="cursor-pointer w-full px-[10px] py-[10px] mb-[20px] bg-[#ee4d2d] text-white rounded border border-transparent text-[14px] text-center">
                                     <button type="submit">Đăng Nhập</button>

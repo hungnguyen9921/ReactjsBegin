@@ -1,8 +1,8 @@
 import express from "express";
-import User from "./models/User.js";
-import users from "./data/User.js";
-import Product from "./models/Product.js";
-import products from "./data/Product.js";
+import User from "../models/User.js";
+import users from "../data/User.js";
+import Product from "../models/Product.js";
+import products from "../data/Product.js";
 import asyncHandler from "express-async-handler";
 
 const ImportData = express.Router();

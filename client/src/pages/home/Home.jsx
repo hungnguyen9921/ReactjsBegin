@@ -1,27 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import Feed from '../../components/Feed/Feed';
 import MainProduct from '../../components/Product/MainProduct';
+import UserProduct from '../../components/Product/UserProduct';
 import { useContext, useEffect, useState } from 'react';
 import { FaCartArrowDown, FaTruck, FaUser } from 'react-icons/fa';
 import Logo from '../../assests/images/logo.png';
 function Home() {
       const { user: currentUser } = useContext(AuthContext);
       const [name, Setname] = useState('');
-      useEffect(() => {
-            fetch('https://tiktok.fullstack.edu.vn/api/users/search?q=hoaa&type=less')
-                  .then((res) => res.json())
-                  .then((res) => {
-                        Setname(res.data);
-                  });
-      }, []);
       return (
             <div>
                   <div className="bg-white py-[20px] shadow-3xl">
                         <div className="max-w-8xl flex mx-auto items-center">
-                              <div className="px-[15px] cursor-pointer">
-                                    <img src={Logo} alt={'Logo'} className="logo" />
-                              </div>
+                              <Link to={`/`}>
+                                    <div className="px-[15px] cursor-pointer">
+                                          <img src={Logo} alt={'Logo'} className="logo" />
+                                    </div>
+                              </Link>
                               <div className="px-[15px] w-[600px]">
                                     <form action="" method="post" className="search-form">
                                           <input
@@ -76,6 +73,7 @@ function Home() {
                   </div>
                   <Feed />
                   <MainProduct />
+                  <UserProduct />
             </div>
       );
 }
