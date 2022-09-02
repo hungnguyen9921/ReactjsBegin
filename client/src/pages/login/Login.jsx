@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SignUpForm } from './SignUpForm';
 import { LoginForm } from './LoginForm';
-import Header from '../../components/Navbar/Header';
+import Logo from '../../assests/images/logo.png';
 import './Login.css';
 import LoginImg from '../../assests/images/login-img.png';
 function Login() {
@@ -16,7 +16,11 @@ function Login() {
       const status = state === 'login' ? 'Đăng Nhập' : 'Đăng Kí';
       return (
             <>
-                  <Header />
+                  <div className="w-full shadow-3xl z-50 bg-white min-h-[56px] py-[20px]">
+                        <div className="w-9/10 mx-auto">
+                              <img src={Logo} alt={'Logo'} className="max-h-full max-w-full" />
+                        </div>
+                  </div>
                   <div className="relative flex bg-[#f6f6f6]">
                         <div className="flex content-center items-center w-full h-[90vh] bg-[#f6f6f6] mx-auto relative pb-[72px]">
                               <div className="flex w-[1200px] mx-auto">

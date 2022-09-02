@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useContext } from 'react';
 import Login from './pages/login/Login';
 import Home from './pages/home/Home';
-import Header from './components/Navbar/Header';
+import SingleProduct from './components/Product/SingleProduct';
 import { AuthContext } from './context/AuthProvider';
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
                                     {/* <Route exact path="/"element={currentUser ? <Home/> : <Login/>}> </Route> */}
                                     <Route exact path="/" element={<Login />}></Route>
                                     <Route exact path="/home" element={<Home />}></Route>
+                                    <Route path="/products/:id" element={<SingleProduct />}></Route>
                               </Routes>
                         </Router>
                   </div>

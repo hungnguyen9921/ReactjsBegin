@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
 import { listProduct } from '../../redux/Actions/ProductActions';
 export default function MainProduct() {
       const dispatch = useDispatch();
