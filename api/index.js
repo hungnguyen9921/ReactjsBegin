@@ -1,9 +1,7 @@
 import express from "express";
 import cor from "cors";
-import path from "path";
 import dotenv from "dotenv";
 import connect from "./src/config/db/index.js";
-import userRoute from "./routers/userRoute.js";
 import authRoute from "./routers/authRoute.js";
 import productRoute from "./routers/productRoute.js";
 import ImportData from "./routers/dataImported.js";
@@ -12,7 +10,6 @@ const app = express();
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 connect();
-// Connect to db//
 
 app.use(
   express.urlencoded({
@@ -28,7 +25,6 @@ app.use(cor());
 //// SINGLE PRODUCT ///
 
 app.use("/api/import", ImportData);
-app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
 

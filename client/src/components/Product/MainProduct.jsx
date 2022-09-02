@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { listProduct } from '../../redux/Actions/ProductActions';
 export default function MainProduct() {
-      const [products, setProducts] = useState([]);
+      const dispatch = useDispatch();
+
+      const productList = useSelector((state) => state.productList);
+      const { loading, error, products } = productList;
+
       useEffect(() => {
-            const fetchProducts = async (req, res) => {
-                  res = await axios.get('/products');
-                  setProducts(res.data);
-            };
-            fetchProducts();
-      }, []);
+            dispatch(listProduct());
+      }, [dispatch]);
+
+      // const [products, setProducts] = useState([]);
+      // useEffect(() => {
+      //       const fetchProducts = async (req, res) => {
+      //             res = await axios.get('/products');
+      //             setProducts(res.data);
+      //       };
+      //       fetchProducts();
+      // }, []);
       return (
             <div className="pb-[30px]">
                   <div className="max-w-8xl mx-auto px-[30px] bg-white rounded shadow-3xl pb-[30px]">

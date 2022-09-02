@@ -21,15 +21,18 @@ authRoute.post(
   })
 );
 
-authRoute.post("/register", async function (req, res) {
-  try {
-    const newUser = new User(req.body);
-    newUser.username = req.body.email.split("@")[0];
-    const savedUser = await newUser.save();
-    res.status(200).json(savedUser);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
+authRoute.post(
+  "/register",
+  asyncHandler(async (req, res) => {
+    try {
+      const newUser = new User(req.body);
+      newUser.username = req.body.email.split("@")[0];
+      const savedUser = await newUser.save();
+      res.status(200).json(savedUser);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  })
+);
 
 export default authRoute;
