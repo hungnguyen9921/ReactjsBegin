@@ -4,6 +4,7 @@ module.exports = {
             extend: {
                   colors: {
                         'regal-black': 'rgb(168, 165, 165)',
+                        'minus-black': 'rgb(204, 204, 204)',
                   },
                   width: {
                         '9/10': '90%',
