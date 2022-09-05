@@ -5,6 +5,7 @@ import connect from "./src/config/db/index.js";
 import authRoute from "./routers/authRoute.js";
 import productRoute from "./routers/productRoute.js";
 import ImportData from "./routers/dataImported.js";
+import singleproductRoute from "./routers/singleproductRoute.js";
 
 const app = express();
 dotenv.config();
@@ -27,11 +28,6 @@ app.use(cor());
 app.use("/api/import", ImportData);
 app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
-
-app.get("/api/products/:id", (req, res) => {
-  const product = products.find((p) => p.id === req.params.id);
-  res.json(product);
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

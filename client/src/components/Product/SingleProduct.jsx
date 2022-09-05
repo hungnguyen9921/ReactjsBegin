@@ -1,11 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruckMoving, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
 import Header from '../Navbar/Header';
 import SingleImages from '../../assests/images/iphone-13-blue-1-600x600.jpg';
+import { useDispatch, useSelector } from 'react-redux';
+import { detailProduct } from '../../redux/Actions/ProductActions';
 function SingleProduct() {
+      const dispatch = useDispatch();
+      const params = useParams();
+      const productDetails = useSelector((state) => state.productDetails);
+      const { loading, error, products } = productDetails;
+
+      useEffect(() => {
+            dispatch(detailProduct(params));
+      }, [dispatch, params]);
+
       const [count, setCount] = useState(1);
+      const [activeColor, setActiveColor] = useState('Đen');
+      const [activeRam, setActiveRam] = useState('32GB');
 
       const handelMinus = () => {
             setCount((count) => count - 1);
@@ -15,8 +28,6 @@ function SingleProduct() {
             setCount((count) => count + 1);
       };
 
-      const params = useParams();
-      console.log(params.id);
       return (
             <>
                   <Header />
@@ -119,24 +130,72 @@ function SingleProduct() {
                                           </div>
                                           <div className="py-[20px]">
                                                 <span>
-                                                      Chọn màu sắc: <strong>Đen</strong>
+                                                      Chọn màu sắc: <strong>{activeColor}</strong>
                                                 </span>
                                                 <div className="">
-                                                      <button className="border-2 rounded px-[15px] mr-[10px] py-[5px] bg-[#288ad6] text-white">
+                                                      <button
+                                                            className="border-2 rounded px-[15px] mr-[10px] py-[5px]"
+                                                            style={
+                                                                  activeColor === 'Đen'
+                                                                        ? {
+                                                                                backgroundColor:
+                                                                                      '#288ad6',
+                                                                                color: 'white',
+                                                                          }
+                                                                        : {}
+                                                            }
+                                                            onClick={() => setActiveColor('Đen')}
+                                                      >
                                                             Đen
                                                       </button>
-                                                      <button className="border-2 rounded px-[10px] py-[5px]">
+                                                      <button
+                                                            className="border-2 rounded px-[10px] py-[5px]"
+                                                            style={
+                                                                  activeColor === 'Vàng'
+                                                                        ? {
+                                                                                backgroundColor:
+                                                                                      '#288ad6',
+                                                                                color: 'white',
+                                                                          }
+                                                                        : {}
+                                                            }
+                                                            onClick={() => setActiveColor('Vàng')}
+                                                      >
                                                             Vàng
                                                       </button>
                                                 </div>
                                                 <span>
-                                                      Chọn dung lượng: <strong>32GB</strong>
+                                                      Chọn dung lượng: <strong>{activeRam}</strong>
                                                 </span>
                                                 <div className="">
-                                                      <button className="border-2 rounded px-[15px] mr-[10px] py-[5px] bg-[#288ad6] text-white">
+                                                      <button
+                                                            className="border-2 rounded px-[15px] mr-[10px] py-[5px]"
+                                                            style={
+                                                                  activeRam === '32GB'
+                                                                        ? {
+                                                                                backgroundColor:
+                                                                                      '#288ad6',
+                                                                                color: 'white',
+                                                                          }
+                                                                        : {}
+                                                            }
+                                                            onClick={() => setActiveRam('32GB')}
+                                                      >
                                                             32GB
                                                       </button>
-                                                      <button className="border-2 rounded px-[10px] py-[5px]">
+                                                      <button
+                                                            className="border-2 rounded px-[10px] py-[5px]"
+                                                            style={
+                                                                  activeRam === '64GB'
+                                                                        ? {
+                                                                                backgroundColor:
+                                                                                      '#288ad6',
+                                                                                color: 'white',
+                                                                          }
+                                                                        : {}
+                                                            }
+                                                            onClick={() => setActiveRam('64GB')}
+                                                      >
                                                             64GB
                                                       </button>
                                                 </div>
