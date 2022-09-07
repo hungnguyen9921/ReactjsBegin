@@ -5,7 +5,6 @@ import axios from 'axios';
 export default function UserProduct() {
       const [products, setProducts] = useState([]);
       useEffect(() => {
-            console.log(2);
             const fetchProducts = async (req, res) => {
                   res = await axios.get('/products');
                   setProducts(res.data);

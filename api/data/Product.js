@@ -107,7 +107,7 @@ const products = [
     numReviews: 0,
   },
   {
-    name: "Balo ^ Túi Ví Nam",
+    name: "Balo & Túi Ví Nam",
     image: "./images/mainproduct11.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -208,7 +208,7 @@ const products = [
   },
   {
     name: "Điện Thoại iPhone 13 64GB - Hàng Chính Hãng",
-    image: "./images/iphone-13-blue-1-600x600.jpg",
+    image: "./images/iphone13.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 89,

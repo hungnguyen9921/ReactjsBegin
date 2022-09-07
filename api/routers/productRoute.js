@@ -1,4 +1,5 @@
 import express from "express";
+import mongoose from "mongoose";
 import Product from "../models/Product.js";
 import asyncHandler from "express-async-handler";
 
@@ -15,8 +16,9 @@ productRoute.get(
 productRoute.get(
   "/:id",
   asyncHandler(async (req, res) => {
+    const id = new mongoose.Types.ObjectId(req.params.id);
     const product = await Product.findOne({
-      id: req.params.id,
+      _id: id,
     });
     if (product) {
       res.json(product);

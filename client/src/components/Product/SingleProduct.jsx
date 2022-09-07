@@ -13,8 +13,8 @@ function SingleProduct() {
       const { loading, error, products } = productDetails;
 
       useEffect(() => {
-            dispatch(detailProduct(params));
-      }, [dispatch, params]);
+            dispatch(detailProduct(params.id));
+      }, [dispatch, params.id]);
 
       const [count, setCount] = useState(1);
       const [activeColor, setActiveColor] = useState('Đen');
