@@ -5,6 +5,7 @@ import Login from './pages/login/Login';
 import Home from './pages/home/Home';
 import SingleProduct from './components/Product/SingleProduct';
 import { AuthContext } from './context/AuthProvider';
+import Cart from './pages/cart/Cart';
 
 function App() {
       const { user: currentUser } = useContext(AuthContext);
@@ -19,6 +20,7 @@ function App() {
                                     <Route exact path="/" element={<Login />}></Route>
                                     <Route exact path="/home" element={<Home />}></Route>
                                     <Route path="/products/:id" element={<SingleProduct />}></Route>
+                                    <Route path="/cart" element={<Cart />}></Route>
                               </Routes>
                         </Router>
                   </div>

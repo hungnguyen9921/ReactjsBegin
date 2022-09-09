@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruckMoving, faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Header from '../Navbar/Header';
-import SingleImages from '../../assests/images/iphone-13-blue-1-600x600.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailProduct } from '../../redux/Actions/ProductActions';
-function SingleProduct() {
+function SingleProduct({ history }) {
       const dispatch = useDispatch();
       const params = useParams();
       const productDetails = useSelector((state) => state.productDetails);
@@ -28,6 +27,11 @@ function SingleProduct() {
             setCount((count) => count + 1);
       };
 
+      const AddtoCartHandle = (e) => {
+            // // e.preventDefault();
+            // history.push(`/cart/${params.id}?qty=${count}`);
+      };
+
       return (
             <>
                   <Header />
@@ -40,7 +44,7 @@ function SingleProduct() {
                                                       <img
                                                             height={62}
                                                             width={62}
-                                                            src={SingleImages}
+                                                            src={products.image}
                                                             alt=""
                                                       />
                                                 </div>
@@ -48,7 +52,7 @@ function SingleProduct() {
                                                       <img
                                                             height={52}
                                                             width={52}
-                                                            src={SingleImages}
+                                                            src={products.image}
                                                             alt=""
                                                       />
                                                 </div>
@@ -56,7 +60,7 @@ function SingleProduct() {
                                                       <img
                                                             height={52}
                                                             width={52}
-                                                            src={SingleImages}
+                                                            src={products.image}
                                                             alt=""
                                                       />
                                                 </div>
@@ -64,7 +68,7 @@ function SingleProduct() {
                                                       <img
                                                             height={52}
                                                             width={52}
-                                                            src={SingleImages}
+                                                            src={products.image}
                                                             alt=""
                                                       />
                                                 </div>
@@ -72,7 +76,7 @@ function SingleProduct() {
                                                       <img
                                                             height={52}
                                                             width={52}
-                                                            src={SingleImages}
+                                                            src={products.image}
                                                             alt=""
                                                       />
                                                 </div>
@@ -80,7 +84,7 @@ function SingleProduct() {
                                           <div className="flex justify-center">
                                                 <img
                                                       className=" w-[400px] h-[400px]"
-                                                      src={SingleImages}
+                                                      src={products.image}
                                                       alt=""
                                                 />
                                           </div>
@@ -221,13 +225,18 @@ function SingleProduct() {
                                                                   </div>
                                                                   <input type="hidden" />
                                                             </div>
-                                                            <button className="ml-[20px] bg-[#ff9600] text-white rounded px-[20px]">
-                                                                  <FontAwesomeIcon
-                                                                        icon={faCartPlus}
-                                                                        className="mr-[10px]"
-                                                                  />
-                                                                  CHỌN MUA
-                                                            </button>
+                                                            <Link to={'/cart'}>
+                                                                  <button
+                                                                        onClick={AddtoCartHandle()}
+                                                                        className="ml-[20px] bg-[#ff9600] text-white rounded px-[20px]"
+                                                                  >
+                                                                        <FontAwesomeIcon
+                                                                              icon={faCartPlus}
+                                                                              className="mr-[10px]"
+                                                                        />
+                                                                        CHỌN MUA
+                                                                  </button>
+                                                            </Link>
                                                       </div>
                                                 </div>
                                           </div>

@@ -208,7 +208,7 @@ const products = [
   },
   {
     name: "Điện Thoại iPhone 13 64GB - Hàng Chính Hãng",
-    image: "./images/iphone13.jpg",
+    image: "/images/iphone13.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 89,
@@ -218,7 +218,7 @@ const products = [
   },
   {
     name: "Điện Thoại Samsung Galaxy - Z-Fold",
-    image: "./images/samsung-galaxy-z-fold-3-silver-1-600x600.jpg",
+    image: "/images/samsung-galaxy-z-fold-3-silver-1-600x600.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 4490000,
@@ -228,7 +228,7 @@ const products = [
   },
   {
     name: "Siêu Trí Nhớ - Sách Bán Chạy Tháng 12",
-    image: "./images/sieutrinho-book.jpg",
+    image: "/images/sieutrinho-book.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 4490000,
@@ -238,7 +238,7 @@ const products = [
   },
   {
     name: "Đồng Hồ Samsung Galaxy Watch5 Pro ",
-    image: "./images/samsung-galaxy-watch5-pro-xam-thumbn-600x600.jpg",
+    image: "/images/samsung-galaxy-watch5-pro-xam-thumbn-600x600.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 4490000,
@@ -248,7 +248,7 @@ const products = [
   },
   {
     name: "Sách Target",
-    image: "./images/target-book.jpg",
+    image: "/images/target-book.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 4490000,
@@ -258,7 +258,7 @@ const products = [
   },
   {
     name: "Điện Thoại Oppo A55 - 4GB",
-    image: "./images/oppo-a55-4g-thumb-new-600x600.jpg",
+    image: "/images/oppo-a55-4g-thumb-new-600x600.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 89,
@@ -268,7 +268,7 @@ const products = [
   },
   {
     name: "Điện Thoại Redmi 10",
-    image: "./images/redmi-10-gray-600x600.jpg",
+    image: "/images/redmi-10-gray-600x600.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 4490000,
@@ -278,7 +278,7 @@ const products = [
   },
   {
     name: "Loa Bluetooth JBL Clip 4",
-    image: "./images/loa-bluetooth.jpg",
+    image: "/images/loa-bluetooth.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 4490000,
@@ -288,7 +288,7 @@ const products = [
   },
   {
     name: "Bộ Lau Nhà 360 Độ Sunhouse Ks-CI350PQ",
-    image: "./images/clean-house.jpg",
+    image: "/images/clean-house.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 4490000,
@@ -298,7 +298,7 @@ const products = [
   },
   {
     name: "Xiaomi Redmi Note 11",
-    image: "./images/redmi-note11.jpg",
+    image: "/images/redmi-note11.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 4490000,
