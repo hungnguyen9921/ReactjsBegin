@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruckMoving, faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../Navbar/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailProduct } from '../../redux/Actions/ProductActions';
-function SingleProduct({ history }) {
+function SingleProduct() {
+      const history = useNavigate();
       const dispatch = useDispatch();
       const params = useParams();
       const productDetails = useSelector((state) => state.productDetails);
@@ -28,8 +29,8 @@ function SingleProduct({ history }) {
       };
 
       const AddtoCartHandle = (e) => {
-            // // e.preventDefault();
-            // history.push(`/cart/${params.id}?qty=${count}`);
+            e.preventDefault();
+            history(`/cart/${params.id}?qty=${count}`);
       };
 
       return (
@@ -225,18 +226,17 @@ function SingleProduct({ history }) {
                                                                   </div>
                                                                   <input type="hidden" />
                                                             </div>
-                                                            <Link to={'/cart'}>
-                                                                  <button
-                                                                        onClick={AddtoCartHandle()}
-                                                                        className="ml-[20px] bg-[#ff9600] text-white rounded px-[20px]"
-                                                                  >
-                                                                        <FontAwesomeIcon
-                                                                              icon={faCartPlus}
-                                                                              className="mr-[10px]"
-                                                                        />
-                                                                        CHỌN MUA
-                                                                  </button>
-                                                            </Link>
+
+                                                            <button
+                                                                  onClick={AddtoCartHandle}
+                                                                  className="ml-[20px] bg-[#ff9600] text-white rounded px-[20px]"
+                                                            >
+                                                                  <FontAwesomeIcon
+                                                                        icon={faCartPlus}
+                                                                        className="mr-[10px]"
+                                                                  />
+                                                                  CHỌN MUA
+                                                            </button>
                                                       </div>
                                                 </div>
                                           </div>

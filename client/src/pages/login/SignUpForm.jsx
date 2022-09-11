@@ -65,7 +65,7 @@ export function SignUpForm() {
                                           <input
                                                 type="checkbox"
                                                 value="Nhớ mật khẩu"
-                                                className="absolute left-0 bottom-0 cursor pointer h-[16px] w-[16px]"
+                                                className="absolute left-0 bottom-0.5 cursor pointer h-[16px] w-[16px]"
                                           />
                                           <span className="checkbox-label">Nhớ mật khẩu</span>
                                     </label>

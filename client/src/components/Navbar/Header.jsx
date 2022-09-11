@@ -6,7 +6,7 @@ export default function Header() {
       return (
             <div className="bg-white py-[20px] shadow-3xl">
                   <div className="max-w-8xl flex mx-auto items-center">
-                        <Link to={`/`}>
+                        <Link to={`/home`}>
                               <div className="px-[15px] cursor-pointer">
                                     <img src={Logo} alt={'Logo'} className="logo" />
                               </div>
@@ -25,36 +25,33 @@ export default function Header() {
                         <div className="px-[15px] cursor-pointer text-sm ">
                               <div className="main-home__container">
                                     <ul id="menu-menu-wishlist-compare" className="flex">
-                                          <li className="flex mr-[20px] max-w-[150px] align-top">
-                                                <a className="item-link elementor-item" href="#">
-                                                      <FaTruck className="text-4xl" />
-                                                </a>
-                                                <span className="text-[#666] pl-[10px] font-medium">
-                                                      Theo dõi Đơn hàng
-                                                </span>
-                                          </li>
-                                          <li className="flex mr-[20px] max-w-[150px] align-top">
-                                                <a
-                                                      className="item-link elementor-item"
-                                                      href="https://demo.wpthemego.com/themes/sw_emarket/layout3/wishlist/"
-                                                >
-                                                      <FaUser className="text-4xl" />
-                                                </a>
-                                                <span className="text-[#666] pl-[10px] font-medium">
-                                                      Đăng nhập Tài khoản
-                                                </span>
-                                          </li>
-                                          <li className="flex mr-[20px] max-w-[150px] align-top">
-                                                <a
-                                                      className="item-link elementor-item"
-                                                      href="https://demo.wpthemego.com/themes/sw_emarket/layout3/wishlist/"
-                                                >
-                                                      <FaCartArrowDown className="text-4xl" />
-                                                </a>
-                                                <span className="text-[#666] pl-[10px] font-medium">
-                                                      Giỏ hàng của bạn
-                                                </span>
-                                          </li>
+                                          <Link to={'/cart'}>
+                                                <li className="flex mr-[20px] max-w-[150px] align-top">
+                                                      <FaTruck className="text-4xl text-[#2673dd]" />
+
+                                                      <span className="text-[#666] pl-[10px] font-medium">
+                                                            Theo dõi Đơn hàng
+                                                      </span>
+                                                </li>
+                                          </Link>
+                                          <Link to={'/'}>
+                                                <li className="flex mr-[20px] max-w-[150px] align-top">
+                                                      <FaUser className="text-4xl text-[#2673dd]" />
+
+                                                      <span className="text-[#666] pl-[10px] font-medium">
+                                                            Đăng nhập Tài khoản
+                                                      </span>
+                                                </li>
+                                          </Link>
+                                          <Link to={'/cart'}>
+                                                <li className="flex mr-[20px] max-w-[150px] align-top">
+                                                      <FaCartArrowDown className="text-4xl text-[#2673dd]" />
+
+                                                      <span className="text-[#666] pl-[10px] font-medium">
+                                                            Giỏ hàng của bạn
+                                                      </span>
+                                                </li>
+                                          </Link>
                                     </ul>
                               </div>
                         </div>

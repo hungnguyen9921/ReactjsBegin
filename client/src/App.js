@@ -16,11 +16,14 @@ function App() {
                   <div className="App">
                         <Router>
                               <Routes>
-                                    {/* <Route exact path="/"element={currentUser ? <Home/> : <Login/>}> </Route> */}
-                                    <Route exact path="/" element={<Login />}></Route>
-                                    <Route exact path="/home" element={<Home />}></Route>
+                                    <Route
+                                          exact
+                                          path="/"
+                                          element={currentUser ? <Home /> : <Login />}
+                                    ></Route>
+
                                     <Route path="/products/:id" element={<SingleProduct />}></Route>
-                                    <Route path="/cart" element={<Cart />}></Route>
+                                    <Route path="/cart/:id" element={<Cart />}></Route>
                               </Routes>
                         </Router>
                   </div>

@@ -40,13 +40,11 @@ export function LoginForm() {
                                           <input
                                                 type="checkbox"
                                                 value="Nhớ mật khẩu"
-                                                className="absolute left-0 bottom-0 cursor pointer h-[16px] w-[16px]"
+                                                className="absolute left-0 bottom-0.5 cursor pointer h-[16px] w-[16px]"
                                           />
                                           <span className="checkbox-label">Nhớ mật khẩu</span>
                                     </label>
-                                    <Link to={`/home`}>
-                                          <a href="#">Quên mật khẩu?</a>
-                                    </Link>
+                                    <Link to={`/home`}>Quên mật khẩu?</Link>
                               </div>
                               <div className="cursor-pointer w-full px-[10px] py-[10px] mb-[20px] bg-[#ee4d2d] text-white rounded border border-transparent text-[14px] text-center">
                                     <button type="submit">Đăng Nhập</button>
