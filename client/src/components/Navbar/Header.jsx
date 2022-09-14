@@ -6,7 +6,7 @@ export default function Header() {
       return (
             <div className="bg-white py-[20px] shadow-3xl">
                   <div className="max-w-8xl flex mx-auto items-center">
-                        <Link to={`/home`}>
+                        <Link to={`/`}>
                               <div className="px-[15px] cursor-pointer">
                                     <img src={Logo} alt={'Logo'} className="logo" />
                               </div>

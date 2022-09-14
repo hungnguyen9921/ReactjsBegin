@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import LocationForm from '../../components/Location/LocationForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../components/Navbar/Header';
+import Radio from '../../components/Radio/Radio';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../../redux/Actions/CartActions';
 export default function Cart() {
+      const [selected, setSelected] = useState('first');
       const location = useLocation();
       const params = useParams();
       const dispatch = useDispatch();
       const qty = location.search ? Number(location.search.split('=')[1]) : 1;
-
       const cart = useSelector((state) => state.cart);
       const { cartItems } = cart;
 
@@ -23,6 +25,10 @@ export default function Cart() {
       const removeFromCartHandle = (id) => {
             dispatch(removeFromCart(id));
       };
+
+      const total = cartItems
+            .reduce((currentTotal, index) => currentTotal + index.qty * index.price, 0)
+            .toFixed(2);
 
       return (
             <div>
@@ -59,7 +65,7 @@ export default function Cart() {
                                                                   Hàng Chính Hãng
                                                             </div>
                                                             <span className="text-[#ee4d2d]">
-                                                                  15.000.000 đ
+                                                                  {item.price}
                                                             </span>
                                                       </div>
                                                       <div className="pb-[10px]">
@@ -93,10 +99,10 @@ export default function Cart() {
                                                                   id="colors"
                                                             >
                                                                   <option value="black">
-                                                                        Màu Sắc: Đen
+                                                                        Dung Lượng: 32GB
                                                                   </option>
                                                                   <option value="black">
-                                                                        Màu Sắc: Trắng
+                                                                        Dung Lượng: 64GB
                                                                   </option>
                                                             </select>
                                                             <div className="text-[#333] rounded text-[14px] bg-white border-2 w-[120px] h-[40px] leading-[40px]">
@@ -146,7 +152,7 @@ export default function Cart() {
                               <div className="pt-[10px] pb-[20px] leading-7 border-b-2">
                                     <div className="flex justify-between ">
                                           <span>Tổng tiền:</span>
-                                          <span>27.000.000 đ</span>
+                                          <span>{total} đ</span>
                                     </div>
                                     <div className="flex justify-between ">
                                           <span>Phí chuyển hàng:</span>
@@ -181,7 +187,7 @@ export default function Cart() {
                                           </button>
                                     </div>
                               </div>
-                              <div className="pt-[20px]">
+                              <div className="py-[20px] border-b-2">
                                     <div className="flex justify-between">
                                           <input
                                                 className="pl-[5px] pr-[80px] text-[14px] py-[8px] border-2 rounded "
@@ -195,7 +201,7 @@ export default function Cart() {
                                                 type="text"
                                                 name="phonereceiver"
                                                 id="phonereceiver"
-                                                placeholder="Số điện thoại người nhận hàng"
+                                                placeholder="Số điện thoại người nhận"
                                           />
                                     </div>
                                     <div className="pt-[10px]">
@@ -204,6 +210,35 @@ export default function Cart() {
                                                 type="text"
                                                 placeholder="Lời nhắn cho người bán (Không bắt buộc)"
                                           />
+                                    </div>
+                              </div>
+                              <div className="py-[20px]">
+                                    <strong>
+                                          Vui lòng điền đầy đủ thông tin bên dưới hoặc chọn địa chỉ
+                                          đã lưu
+                                    </strong>
+                                    <div className="flex justify-between items-center mb-[10px]">
+                                          <Radio
+                                                value="first"
+                                                selected={selected}
+                                                text="Địa chỉ giao hàng mới"
+                                                onChange={setSelected}
+                                          />
+                                          <Radio
+                                                value="second"
+                                                selected={selected}
+                                                text="Định vị"
+                                                onChange={setSelected}
+                                          />
+                                          <Radio
+                                                value="third"
+                                                selected={selected}
+                                                text="Địa chỉ giao hàng đã lưu"
+                                                onChange={setSelected}
+                                          />
+                                    </div>
+                                    <div className="rounded bg-[#f6f6f6] py-[20px]">
+                                          <LocationForm />
                                     </div>
                               </div>
                         </div>

@@ -11,14 +11,6 @@ export default function MainProduct() {
             dispatch(listProduct());
       }, [dispatch]);
 
-      // const [products, setProducts] = useState([]);
-      // useEffect(() => {
-      //       const fetchProducts = async (req, res) => {
-      //             res = await axios.get('/products');
-      //             setProducts(res.data);
-      //       };
-      //       fetchProducts();
-      // }, []);
       return (
             <div className="pb-[30px]">
                   <div className="max-w-8xl mx-auto px-[30px] bg-white rounded shadow-3xl pb-[30px]">
@@ -29,13 +21,15 @@ export default function MainProduct() {
                         </div>
                         <div className="grid grid-cols-10 border-t border-l rounded">
                               {products.map((product, Index) => {
-                                    if (product.numReviews == 0) {
+                                    if (product.numReviews !== 0) {
+                                          return <div className=""></div>;
+                                    } else {
                                           return (
                                                 <div
                                                       className="h-[160px] border-r border-b cursor-pointer"
                                                       key={Index}
                                                 >
-                                                      <div className="flex flex-col justify-center items-center h-[100%]">
+                                                      <div className="flex flex-col justify-center items-center h-full">
                                                             <div className="w-[70%] h-[70%] mt-[10px]">
                                                                   <div className="h-full">
                                                                         <img

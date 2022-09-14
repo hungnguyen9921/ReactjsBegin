@@ -2,6 +2,9 @@ module.exports = {
       content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
       theme: {
             extend: {
+                  flex: {
+                        '1/2': '1 1 50%',
+                  },
                   colors: {
                         'regal-black': 'rgb(168, 165, 165)',
                         'minus-black': 'rgb(204, 204, 204)',
