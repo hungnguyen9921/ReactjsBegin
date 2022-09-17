@@ -2,12 +2,21 @@ import express from "express";
 import path from "path";
 import cor from "cors";
 import dotenv from "dotenv";
-import connect from "../../api/src/index.js";
 import authRoute from "../routers/authRoute.js";
 import productRoute from "../routers/productRoute.js";
 import ImportData from "../routers/dataImported.js";
 
 dotenv.config();
+
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log("connected to db");
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+
 const app = express();
 
 const PORT = process.env.PORT || 5000;
