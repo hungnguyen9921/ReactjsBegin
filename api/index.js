@@ -1,11 +1,11 @@
+import cor from "cors";
+import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import path from "path";
-import cor from "cors";
-import dotenv from "dotenv";
-import { authRoute } from "./routers/authRoute.js";
-import productRoute from "./routers/productRoute.js";
+import authRoute from "./routers/authRoute.js";
 import ImportData from "./routers/dataImported.js";
+import productRoute from "./routers/productRoute.js";
 
 dotenv.config();
 
