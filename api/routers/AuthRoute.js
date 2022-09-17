@@ -2,7 +2,7 @@ import express from "express";
 import User from "../models/User.js";
 import asyncHandler from "express-async-handler";
 import generaToken from "../utils/generateToken.js";
-const authRoute = express.Router();
+export const authRoute = express.Router();
 
 authRoute.post(
   "/login",
@@ -41,5 +41,3 @@ authRoute.post(
     }
   })
 );
-
-export default authRoute;
