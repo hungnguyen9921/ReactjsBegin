@@ -1,6 +1,7 @@
 import express from "express";
 import User from "../models/User.js";
 import asyncHandler from "express-async-handler";
+import generaToken from "../utils/generateToken.js";
 const authRoute = express.Router();
 
 authRoute.post(
@@ -12,7 +13,13 @@ authRoute.post(
         return res.status(404).json("Not found");
       } else {
         if (user.password === req.body.password) {
-          return res.status(200).json(user);
+          return res.status(200).json({
+            _id: user._id,
+            email: user.email,
+            password: user.password,
+            token: generaToken(user._id),
+            createAt: user.createAt,
+          });
         } else res.status(400).json("wrong password");
       }
     } catch (error) {

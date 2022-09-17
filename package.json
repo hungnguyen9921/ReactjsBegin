@@ -1,0 +1,21 @@
+{
+  "name": "reactjsbegin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd api && npm install && cd ../client && npm install && npm run build",
+    "start": "node api/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hungnguyen9921/ReactjsBegin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hungnguyen9921/ReactjsBegin/issues"
+  },
+  "homepage": "https://github.com/hungnguyen9921/ReactjsBegin#readme"
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import LocationForm from '../../components/Location/LocationForm';
+import Map from '../../components/Location/Map';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../components/Navbar/Header';
@@ -237,9 +238,13 @@ export default function Cart() {
                                                 onChange={setSelected}
                                           />
                                     </div>
-                                    <div className="rounded bg-[#f6f6f6] py-[20px]">
-                                          <LocationForm />
-                                    </div>
+                                    {selected === 'first' ? (
+                                          <div className="rounded bg-[#f6f6f6] py-[20px]">
+                                                <LocationForm />
+                                          </div>
+                                    ) : (
+                                          <Map />
+                                    )}
                               </div>
                         </div>
                   </div>

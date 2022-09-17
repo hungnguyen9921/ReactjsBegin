@@ -12,7 +12,7 @@ export default function UserProduct() {
             fetchProducts();
       }, []);
       return (
-            <div className="pb-[30px]">
+            <section className="pb-[30px] user__product">
                   <div className="max-w-8xl mx-auto px-[30px] bg-white rounded shadow-3xl pb-[10px]">
                         <div className="flex h-[60px] items-center">
                               <div className="text-[18px] font-medium text-[#666]">
@@ -56,6 +56,6 @@ export default function UserProduct() {
                               })}
                         </div>
                   </div>
-            </div>
+            </section>
       );
 }

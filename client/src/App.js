@@ -6,7 +6,7 @@ import Home from './pages/home/Home';
 import SingleProduct from './components/Product/SingleProduct';
 import { AuthContext } from './context/AuthProvider';
 import Cart from './pages/cart/Cart';
-import Map from './components/Location/Map';
+import Loading from './components/Loading/Loading';
 
 function App() {
       const { user: currentUser } = useContext(AuthContext);
@@ -25,7 +25,7 @@ function App() {
 
                                     <Route path="/products/:id" element={<SingleProduct />}></Route>
                                     <Route path="/cart/:id" element={<Cart />}></Route>
-                                    <Route path="/map" element={<Map />}></Route>
+                                    <Route path="/map" element={<Loading />}></Route>
                               </Routes>
                         </Router>
                   </div>

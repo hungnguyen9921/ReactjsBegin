@@ -12,7 +12,7 @@ export default function MainProduct() {
       }, [dispatch]);
 
       return (
-            <div className="pb-[30px]">
+            <section className="pb-[30px] main__product">
                   <div className="max-w-8xl mx-auto px-[30px] bg-white rounded shadow-3xl pb-[30px]">
                         <div className="flex h-[60px] items-center">
                               <div className="text-[18px] font-medium text-[#666]">
@@ -22,7 +22,7 @@ export default function MainProduct() {
                         <div className="grid grid-cols-10 border-t border-l rounded">
                               {products.map((product, Index) => {
                                     if (product.numReviews !== 0) {
-                                          return <div className=""></div>;
+                                          return <></>;
                                     } else {
                                           return (
                                                 <div
@@ -39,7 +39,7 @@ export default function MainProduct() {
                                                                         />
                                                                   </div>
                                                             </div>
-                                                            <div className="w-full h-[30%] text-[16px] text-center ">
+                                                            <div className="w-full h-[30%] text-[14px] text-center ">
                                                                   {product.name}
                                                             </div>
                                                       </div>
@@ -49,6 +49,6 @@ export default function MainProduct() {
                               })}
                         </div>
                   </div>
-            </div>
+            </section>
       );
 }

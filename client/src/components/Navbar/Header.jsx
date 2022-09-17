@@ -4,7 +4,7 @@ import Logo from '../../assests/images/logo.png';
 import { FaCartArrowDown, FaTruck, FaUser } from 'react-icons/fa';
 export default function Header() {
       return (
-            <div className="bg-white py-[20px] shadow-3xl">
+            <header className="bg-white py-[20px] shadow-3xl">
                   <div className="max-w-8xl flex mx-auto items-center">
                         <Link to={`/`}>
                               <div className="px-[15px] cursor-pointer">
@@ -17,7 +17,7 @@ export default function Header() {
                                           type="text"
                                           name="search"
                                           placeholder="Search"
-                                          className="pl-[10px] rounded border-amber-600 border-2 w-full h-[42px]"
+                                          className="pl-[10px] rounded border-amber-600 border-2 w-full h-[42px] focus:outline-none"
                                     />
                               </form>
                         </div>
@@ -56,6 +56,6 @@ export default function Header() {
                               </div>
                         </div>
                   </div>
-            </div>
+            </header>
       );
 }
