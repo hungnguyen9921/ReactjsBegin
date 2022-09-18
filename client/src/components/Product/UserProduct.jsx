@@ -6,7 +6,7 @@ export default function UserProduct() {
       const [products, setProducts] = useState([]);
       useEffect(() => {
             const fetchProducts = async (req, res) => {
-                  res = await axios.get('/products');
+                  res = await axios.get('/api/products');
                   setProducts(res.data);
             };
             fetchProducts();
