@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import Loading from '../Loading/Loading';
-import axios from 'axios';
 
 const containerStyle = {
       width: '100%',

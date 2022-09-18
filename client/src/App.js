@@ -10,7 +10,6 @@ import Loading from './components/Loading/Loading';
 
 function App() {
       const { user: currentUser } = useContext(AuthContext);
-      console.log(currentUser);
 
       return (
             <>
