@@ -8,6 +8,7 @@ authRoute.post(
   "/login",
   asyncHandler(async (req, res) => {
     try {
+      console.log(123);
       const user = await User.findOne({ email: req.body.email });
       if (!user) {
         return res.status(404).json("Not found");
