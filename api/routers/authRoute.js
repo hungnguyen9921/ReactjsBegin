@@ -11,7 +11,7 @@ authRoute.post(
       console.log(123);
       const user = await User.findOne({ email: req.body.email });
       if (!user) {
-        return res.status(404).json("Not found");
+        return res.status(404).json("Not found user");
       } else {
         if (user.password === req.body.password) {
           return res.status(200).json({
