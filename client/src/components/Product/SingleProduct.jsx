@@ -4,6 +4,7 @@ import { faTruckMoving, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../Navbar/Header';
 import Loading from '../Loading/Loading';
+import { HomeIcon, ProtectionIcon } from '../Icon/Icon';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailProduct } from '../../redux/Actions/ProductActions';
 function SingleProduct() {
@@ -251,6 +252,64 @@ function SingleProduct() {
                                                                   </button>
                                                             </div>
                                                       </div>
+                                                </div>
+                                          </div>
+                                          <div className="px-[20px] py-[20px] flex-auto">
+                                                <div className="flex items-center pb-[10px]">
+                                                      <div className="pr-[5px]">
+                                                            <HomeIcon className="text-[#FABA06]" />
+                                                      </div>
+                                                      <p className="pl-[5px] leading-5">
+                                                            <strong className="text-[#288AD6] pr-[5px]">
+                                                                  GOKING
+                                                            </strong>
+                                                            <br />
+                                                            Cam kết chính hiệu 100%
+                                                      </p>
+                                                </div>
+                                                <button className="w-full text-white rounded bg-[#288AD6] py-[5px] mb-[10px]">
+                                                      Xem shop
+                                                </button>
+                                                <div className="py-[5px]">
+                                                      <ProtectionIcon className={'inline'} />
+                                                      <strong className="pl-[15px] text-[20px]">
+                                                            Thông tin bảo hành
+                                                      </strong>
+                                                </div>
+
+                                                <div className="py-[5px] ">
+                                                      <ul className="mb-[5px]">
+                                                            <li className="py-[15px] border-b-2">
+                                                                  <p className="inline">
+                                                                        Thời gian bảo hành
+                                                                  </p>
+                                                                  <span className="float-right">
+                                                                        1 Tháng
+                                                                  </span>
+                                                            </li>
+                                                            <li className="py-[15px] border-b-2">
+                                                                  <p className="inline">
+                                                                        Hình thức bảo hành
+                                                                  </p>
+                                                                  <span className="float-right">
+                                                                        Hóa đơn
+                                                                  </span>
+                                                            </li>
+                                                            <li className="py-[15px] border-b-2">
+                                                                  <p className="inline">
+                                                                        Nơi bảo hành
+                                                                  </p>
+                                                                  <span className="float-right">
+                                                                        Bảo hành chính hãng
+                                                                  </span>
+                                                            </li>
+                                                            <li className="py-[15px] border-b-2">
+                                                                  <p className="inline">
+                                                                        Hướng dẫn bảo hành
+                                                                  </p>
+                                                                  <span className="float-right"></span>
+                                                            </li>
+                                                      </ul>
                                                 </div>
                                           </div>
                                     </div>
