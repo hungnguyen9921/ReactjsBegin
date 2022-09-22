@@ -4,6 +4,9 @@ import { faTruckMoving, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../Navbar/Header';
 import Loading from '../Loading/Loading';
+import PreviewProduct from './PreviewProduct';
+import RotateImage from '../../assests/images/360preview.jpg';
+import DetailImage from '../../assests/images/detailpreview.jpg';
 import { HomeIcon, ProtectionIcon } from '../Icon/Icon';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailProduct } from '../../redux/Actions/ProductActions';
@@ -21,6 +24,7 @@ function SingleProduct() {
       const [count, setCount] = useState(1);
       const [activeColor, setActiveColor] = useState('Đen');
       const [activeRam, setActiveRam] = useState('32GB');
+      const [view, setView] = useState(false);
 
       const handelMinus = () => {
             setCount((count) => count - 1);
@@ -35,7 +39,7 @@ function SingleProduct() {
             history(`/cart/${params.id}?qty=${count}`);
       };
 
-      return (
+      return !view ? (
             <>
                   <Header />
                   <div className="mt-[50px] pb-[30px]">
@@ -72,7 +76,7 @@ function SingleProduct() {
                                                             <img
                                                                   height={52}
                                                                   width={52}
-                                                                  src={products.image}
+                                                                  src={DetailImage}
                                                                   alt=""
                                                             />
                                                       </div>
@@ -80,8 +84,9 @@ function SingleProduct() {
                                                             <img
                                                                   height={52}
                                                                   width={52}
-                                                                  src={products.image}
-                                                                  alt=""
+                                                                  src={RotateImage}
+                                                                  alt="#"
+                                                                  onClick={() => setView(true)}
                                                             />
                                                       </div>
                                                 </div>
@@ -319,6 +324,8 @@ function SingleProduct() {
                         </div>
                   </div>
             </>
+      ) : (
+            <PreviewProduct onChange={setView} view={view} />
       );
 }
 

@@ -2,6 +2,7 @@ const products = [
   {
     name: "Thời Trang Nam",
     image: "./images/mainproduct01.png",
+    type: "Quần Áo",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 100,
@@ -258,6 +259,7 @@ const products = [
   },
   {
     name: "Điện Thoại Oppo A55 - 4GB",
+    type: "Điện Thoại",
     image: "/images/oppo-a55-4g-thumb-new-600x600.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -268,6 +270,7 @@ const products = [
   },
   {
     name: "Điện Thoại Redmi 10",
+    type: "Điện Thoại",
     image: "/images/redmi-10-gray-600x600.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",

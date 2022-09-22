@@ -62,8 +62,7 @@ export default function Cart() {
                                                 <div className="flex w-full flex-col">
                                                       <div className="flex w-full justify-between">
                                                             <div className="font-medium">
-                                                                  Điện thoại iPhone 12 32GB Đen -
-                                                                  Hàng Chính Hãng
+                                                                  {item.name}
                                                             </div>
                                                             <span className="text-[#ee4d2d]">
                                                                   {item.price}

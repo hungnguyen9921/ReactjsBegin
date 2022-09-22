@@ -26,6 +26,10 @@ const ProductSchema = new mongoose.Schema(
       required: true,
       max: 50,
     },
+    type: {
+      type: String,
+      max: 50,
+    },
     image: {
       type: String,
       required: true,
