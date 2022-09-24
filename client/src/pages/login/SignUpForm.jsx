@@ -1,13 +1,14 @@
 import React, { useRef, useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import { registerCall } from '../../context/useAuth';
+import RegisterSuccess from '../../utils/RegisterSuccess';
 
 export function SignUpForm() {
       const email = useRef();
       const password = useRef();
       const name = useRef();
       const phone = useRef();
-      const { user, dispatch } = useContext(AuthContext);
+      const { error, dispatch } = useContext(AuthContext);
       const handleRegister = (e) => {
             e.preventDefault();
             const newUser = {
@@ -76,6 +77,7 @@ export function SignUpForm() {
                               </div>
                         </div>
                   </form>
+                  {error === false ? <RegisterSuccess error={error} /> : <> </>}
             </>
       );
 }

@@ -25,7 +25,7 @@ export default function MainProduct() {
                                     <div className="grid grid-cols-10 border-t border-l rounded">
                                           {products.map((product, Index) => {
                                                 if (product.numReviews !== 0) {
-                                                      return <></>;
+                                                      return <div key={Index}> </div>;
                                                 } else {
                                                       return (
                                                             <div

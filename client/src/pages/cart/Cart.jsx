@@ -33,7 +33,7 @@ export default function Cart() {
 
       return (
             <div>
-                  <Header />
+                  <Header value={cartItems.length} />
                   <div className="my-[50px] w-9/20 bg-white mx-auto rounded shadow-3xl">
                         <div className="px-[40px] pt-[10px] pb-[40px]">
                               {cartItems.length === 0 ? (

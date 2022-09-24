@@ -325,7 +325,7 @@ function SingleProduct() {
                   </div>
             </>
       ) : (
-            <PreviewProduct onChange={setView} view={view} />
+            <PreviewProduct onChange={setView} view={view} products={products} />
       );
 }
 

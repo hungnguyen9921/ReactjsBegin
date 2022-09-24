@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Logo from '../../assests/images/logo.png';
 import { FaCartArrowDown, FaTruck, FaUser } from 'react-icons/fa';
 export default function Header() {
+      const cart = useSelector((state) => state.cart);
+      const { cartItems } = cart;
+
       return (
             <header className="bg-white py-[20px] shadow-3xl">
                   <div className="max-w-8xl flex mx-auto items-center">
@@ -11,7 +15,7 @@ export default function Header() {
                                     <img src={Logo} alt={'Logo'} className="logo" />
                               </div>
                         </Link>
-                        <div className="px-[15px] w-[600px]">
+                        <div className="px-[15px] flex-auto">
                               <form action="" method="post" className="search-form">
                                     <input
                                           type="text"
@@ -45,7 +49,12 @@ export default function Header() {
                                           </Link>
                                           <Link to={'/cart'}>
                                                 <li className="flex mr-[20px] max-w-[150px] align-top">
-                                                      <FaCartArrowDown className="text-4xl text-[#2673dd]" />
+                                                      <div className="relative">
+                                                            <FaCartArrowDown className="text-4xl text-[#2673dd]" />
+                                                            <span className="text-white absolute flex items-center justify-center z-[999] bg-[#ff9600] h-[20px] w-[20px] rounded-full top-[-8px] right-[-8px]">
+                                                                  {cartItems.length}
+                                                            </span>
+                                                      </div>
 
                                                       <span className="text-[#666] pl-[10px] font-medium">
                                                             Giỏ hàng của bạn
