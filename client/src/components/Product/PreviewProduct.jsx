@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SearchIcon, QuitIcon } from '../Icon/Icon';
 import { convertPrice } from '../../utils/Fuction';
 import React360Viewer from './React360Viewer';
 
 export default function PreviewProduct(props) {
       const { onChange, view, products } = props;
+      const [showMagnifier, setShowMagnifier] = useState(false);
       return (
             <>
                   <div className="w-full max-h-[100vh] bg-white">
@@ -32,7 +33,10 @@ export default function PreviewProduct(props) {
                                     </div>
                               </div>
                               <div className="flex justify-end items-center w-full mb-[10px] pr-[20px]">
-                                    <div className="">
+                                    <div
+                                          className=""
+                                          onClick={() => setShowMagnifier(!showMagnifier)}
+                                    >
                                           <SearchIcon
                                                 className={'mr-[10px] cursor-pointer z-[999]'}
                                           />
@@ -46,11 +50,13 @@ export default function PreviewProduct(props) {
                                     </div>
                               </div>
                         </div>
+
                         <React360Viewer
                               amount={36}
                               imagePath="https://cdn.tgdd.vn/Products/Images/42/226935/Image360/"
                               fileName="samsung-galaxy-z-fold-3-360-org-{index}.jpg"
                               autoplay
+                              showMagnifier={showMagnifier}
                         />
                   </div>
             </>

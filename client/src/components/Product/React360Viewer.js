@@ -10,6 +10,7 @@ class React360Viewer extends Component {
             this.viewPercentageRef = React.createRef();
             this.viewPortElementRef = React.createRef();
             this.canvas = null;
+            this.imagetoshow = null;
             this.ctx = null;
             this.isMobile = false;
             this.imageData = [];
@@ -28,6 +29,11 @@ class React360Viewer extends Component {
             this.stopAtEdges = false;
 
             this.state = {
+                  x: 0,
+                  y: 0,
+                  showMagnifier: false,
+                  imgWidth: 0,
+                  imgHeight: 0,
                   lastX: 0,
                   lastY: 0,
                   minScale: 0.5,
@@ -109,10 +115,10 @@ class React360Viewer extends Component {
       addImage(resultSrc) {
             const image = new Image();
             image.src = resultSrc;
-            //image.crossOrigin='anonymous'
             image.onload = this.onImageLoad.bind(this);
             image.onerror = this.onImageLoad.bind(this);
             this.images.push(image);
+            this.imagetoshow = this.images[0].src;
       }
 
       onImageLoad(event) {
@@ -306,7 +312,6 @@ class React360Viewer extends Component {
 
                   this.centerX = (this.currentCanvasImage.width * ratio) / 2;
                   this.centerY = (this.currentCanvasImage.height * ratio) / 2;
-
                   //center image
                   this.ctx.drawImage(
                         this.currentCanvasImage,
@@ -678,17 +683,91 @@ class React360Viewer extends Component {
                                     }}
                               >
                                     <div className="v360-viewport-container v360-viewport">
-                                          <canvas
-                                                className="v360-image-container"
-                                                ref={(inputEl) => {
-                                                      this.imageContainerRef = inputEl;
-                                                }}
-                                          ></canvas>
-                                          {this.props.boxShadow ? (
-                                                <div className="v360-product-box-shadow"></div>
-                                          ) : (
-                                                ''
-                                          )}
+                                          <div className="relative">
+                                                <canvas
+                                                      onMouseEnter={(e) => {
+                                                            const elem = e.currentTarget;
+                                                            const { width, height } =
+                                                                  elem.getBoundingClientRect();
+
+                                                            this.setState({
+                                                                  imgWidth: width,
+                                                                  imgHeight: height,
+                                                            });
+                                                            this.setState({
+                                                                  showMagnifier: true,
+                                                            });
+                                                      }}
+                                                      onMouseMove={(e) => {
+                                                            // update cursor position
+                                                            const elem = e.currentTarget;
+                                                            const { top, left } =
+                                                                  elem.getBoundingClientRect();
+
+                                                            // calculate cursor position on the image
+                                                            const x =
+                                                                  e.pageX -
+                                                                  left -
+                                                                  window.pageXOffset;
+                                                            const y =
+                                                                  e.pageY -
+                                                                  top -
+                                                                  window.pageYOffset;
+                                                            console.log(x);
+                                                            this.setState({
+                                                                  x: x,
+                                                                  y: y,
+                                                            });
+                                                            console.log(this.state.x);
+                                                      }}
+                                                      onMouseLeave={() => {
+                                                            // close magnifier
+                                                            this.setState({
+                                                                  showMagnifier: false,
+                                                            });
+                                                      }}
+                                                      className="v360-image-container"
+                                                      ref={(inputEl) => {
+                                                            this.imageContainerRef = inputEl;
+                                                      }}
+                                                ></canvas>
+                                                <div
+                                                      style={{
+                                                            borderRadius: '50%',
+                                                            display: this.props.showMagnifier
+                                                                  ? ''
+                                                                  : 'none',
+                                                            position: 'absolute',
+
+                                                            // prevent maginier blocks the mousemove event of img
+                                                            pointerEvents: 'none',
+                                                            // set size of magnifier
+                                                            height: `150px`,
+                                                            width: `150px`,
+                                                            // move element center to cursor pos
+                                                            top: `${this.state.y - 150 / 2}px`,
+                                                            left: `${this.state.x - 150 / 2}px`,
+                                                            opacity: '1', // reduce opacity so you can verify position
+                                                            border: '1px solid lightgray',
+                                                            backgroundColor: 'white',
+                                                            backgroundImage: `url('${this.imagetoshow}')`,
+                                                            backgroundRepeat: 'no-repeat',
+
+                                                            //calculate zoomed image size
+                                                            backgroundSize: `${
+                                                                  this.state.imgWidth * 1.5
+                                                            }px ${this.state.imgHeight * 1.5}px`,
+
+                                                            //calculete position of zoomed image.
+                                                            backgroundPositionX: `${
+                                                                  -this.state.x * 1.5 + 150 / 2
+                                                            }px`,
+                                                            backgroundPositionY: `${
+                                                                  -this.state.y * 1.5 + 150 / 2
+                                                            }px`,
+                                                      }}
+                                                ></div>
+                                          </div>
                                     </div>
                               </Hammer>
                         </div>
