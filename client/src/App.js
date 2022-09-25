@@ -23,6 +23,7 @@ function App() {
                                     ></Route>
 
                                     <Route path="/products/:id" element={<SingleProduct />}></Route>
+                                    <Route path="/cart/" element={<Cart />}></Route>
                                     <Route path="/cart/:id" element={<Cart />}></Route>
                                     <Route path="/map" element={<RegisterSuccess />}></Route>
                               </Routes>

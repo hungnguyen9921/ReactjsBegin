@@ -8,6 +8,7 @@ import Radio from '../../components/Radio/Radio';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../../redux/Actions/CartActions';
+import { convertPrice } from '../../utils/Fuction';
 export default function Cart() {
       const [selected, setSelected] = useState('first');
       const location = useLocation();
@@ -65,7 +66,10 @@ export default function Cart() {
                                                                   {item.name}
                                                             </div>
                                                             <span className="text-[#ee4d2d]">
-                                                                  {item.price}
+                                                                  $
+                                                                  {convertPrice(
+                                                                        item.price.toString(),
+                                                                  )}
                                                             </span>
                                                       </div>
                                                       <div className="pb-[10px]">
