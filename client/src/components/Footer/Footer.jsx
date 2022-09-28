@@ -4,7 +4,7 @@ import { FaceBookIcon } from '../Icon/Icon';
 import QsanImage from '../../assests/images/qscan.jpg';
 export default function Footer() {
       return (
-            <footer className="pb-[30px] footer">
+            <footer className=" footer">
                   <div className="w-full bg-white">
                         <div className="max-w-8xl mx-auto px-[30px] pb-[30px]">
                               <div className="grid grid-cols-5 pt-[20px]">

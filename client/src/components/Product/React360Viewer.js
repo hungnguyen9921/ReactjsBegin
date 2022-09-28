@@ -397,11 +397,6 @@ class React360Viewer extends Component {
       }
 
       prev = (e) => {
-            //console.log(this.currentLeftPosition)
-            /* this.setState({
-            currentLeftPosition: 10
-        }) */
-            //this.currentLeftPosition = 10
             this.props.spinReverse ? this.turnRight() : this.turnLeft();
       };
 
@@ -713,12 +708,10 @@ class React360Viewer extends Component {
                                                                   e.pageY -
                                                                   top -
                                                                   window.pageYOffset;
-                                                            console.log(x);
                                                             this.setState({
                                                                   x: x,
                                                                   y: y,
                                                             });
-                                                            console.log(this.state.x);
                                                       }}
                                                       onMouseLeave={() => {
                                                             // close magnifier

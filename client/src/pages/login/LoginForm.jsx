@@ -1,9 +1,11 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ShowIcon, HiddenIcon } from '../../components/Icon/Icon';
 import { loginCall } from '../../context/useAuth';
 import { AuthContext } from '../../context/AuthProvider';
 import { CancelIcon } from '../../components/Icon/Icon';
 export function LoginForm() {
+      const [showicon, setShowicon] = useState(false);
       const email = useRef();
       const password = useRef();
       const { error, dispatch } = useContext(AuthContext);
@@ -19,7 +21,7 @@ export function LoginForm() {
                         autoComplete={'off'}
                         onSubmit={handleLogin}
                   >
-                        <div className="input-form">
+                        <div className="w-[80%] mx-auto text-[14px]">
                               {error ? (
                                     <div className="mb-[15px] bg-[#fff9fa] border border-minus-red flex justify-start py-[10px] pl-[10px] rounded">
                                           <div className="mr-[5px] mt-[3px]">
@@ -38,30 +40,51 @@ export function LoginForm() {
                                     <input
                                           type="text"
                                           placeholder="Email/Tên đăng nhập"
-                                          className="w-full text-[14px] mb-[20px] px-[10px] py-[10px] rounded-sm border border-regal-black"
+                                          className="w-full  mb-[20px] px-[10px] py-[10px] rounded-sm border border-regal-black focus:bg-white focus:outline-none"
                                           ref={email}
                                           required={true}
                                     />
                               </div>
-                              <div className="password">
+                              <div className="flex items-center mb-[20px] rounded-sm border border-regal-black focus:border-sky-500">
                                     <input
-                                          type="password"
+                                          type={showicon ? 'text' : 'password'}
                                           placeholder="Mật khẩu"
-                                          className="w-full mb-[20px] text-[14px] px-[10px] py-[10px] rounded-sm border border-regal-black"
+                                          className="w-full  px-[10px] py-[10px] focus:bg-white focus:outline-none"
                                           ref={password}
                                           required={true}
                                     />
+                                    {showicon ? (
+                                          <div
+                                                className=""
+                                                onClick={() => {
+                                                      setShowicon(!showicon);
+                                                }}
+                                          >
+                                                <HiddenIcon
+                                                      className={'mr-[10px] cursor-pointer'}
+                                                />
+                                          </div>
+                                    ) : (
+                                          <div
+                                                className=""
+                                                onClick={() => {
+                                                      setShowicon(!showicon);
+                                                }}
+                                          >
+                                                <ShowIcon className={'mr-[10px] cursor-pointer'} />
+                                          </div>
+                                    )}
                               </div>
                               <div className="flex items-center justify-between mb-[24px]">
                                     <label htmlFor="" className="relative pl-[26px]">
                                           <input
                                                 type="checkbox"
                                                 value="Nhớ mật khẩu"
-                                                className="cursor-pointer absolute text-[14px] left-0 bottom-0.5 cursor pointer h-[16px] w-[16px]"
+                                                className="cursor-pointer absolute  left-0 bottom-0.5 cursor pointer h-[16px] w-[16px]"
                                           />
                                           <span className="checkbox-label">Nhớ mật khẩu</span>
                                     </label>
-                                    <Link className="text-[14px]" to={`/home`}>
+                                    <Link className=" no-underline text-[##2673dd]" to={`/home`}>
                                           Quên mật khẩu?
                                     </Link>
                               </div>

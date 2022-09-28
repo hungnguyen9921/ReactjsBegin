@@ -19,6 +19,25 @@ const reviewSchema = new mongoose.Schema({
   },
 });
 
+const specShema = new mongoose.Schema({
+  color: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+    require: true,
+  },
+  imagereview: {
+    type: Array,
+    required: false,
+  },
+  image360: {
+    type: Array,
+    required: false,
+  },
+});
+
 const ProductSchema = new mongoose.Schema(
   {
     name: {
@@ -32,16 +51,19 @@ const ProductSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      required: true,
     },
-    color: {
-      type: String,
+    capacity: {
+      type: Array,
     },
     description: {
       type: String,
       required: true,
     },
+    imageReviews: {
+      type: String,
+    },
     reviews: [reviewSchema],
+    specs: [specShema],
     rating: {
       type: Number,
       required: true,
@@ -51,6 +73,9 @@ const ProductSchema = new mongoose.Schema(
       type: Number,
       required: true,
       max: 50,
+    },
+    discount: {
+      type: Number,
     },
     price: {
       type: Number,

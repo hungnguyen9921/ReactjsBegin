@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Logo from '../../assests/images/logo.png';
 import { FaCartArrowDown, FaTruck, FaUser } from 'react-icons/fa';
+import { logoutCall } from '../../context/useAuth';
 export default function Header() {
       const cart = useSelector((state) => state.cart);
       const { cartItems } = cart;
-
+      const { user, dispatch } = useContext(AuthContext);
+      const handleLogout = () => {
+            logoutCall(dispatch);
+      };
       return (
             <header className="bg-white py-[20px] shadow-3xl">
                   <div className="max-w-8xl flex mx-auto items-center">
@@ -30,21 +35,43 @@ export default function Header() {
                               <div className="main-home__container">
                                     <ul id="menu-menu-wishlist-compare" className="flex">
                                           <Link to={'/cart'}>
-                                                <li className="flex mr-[20px] max-w-[150px] align-top">
+                                                <li className="flex mr-[20px]  align-top">
                                                       <FaTruck className="text-4xl text-[#2673dd]" />
-
-                                                      <span className="text-[#666] pl-[10px] font-medium">
-                                                            Theo dõi Đơn hàng
-                                                      </span>
+                                                      <div className="mr-[20px]">
+                                                            <span className="text-[#666] pl-[10px] font-medium block">
+                                                                  Theo dõi
+                                                            </span>
+                                                            <span className="text-[#666] pl-[10px] font-medium block">
+                                                                  Đơn hàng
+                                                            </span>
+                                                      </div>
                                                 </li>
                                           </Link>
                                           <Link to={'/'}>
-                                                <li className="flex mr-[20px] max-w-[150px] align-top">
+                                                <li
+                                                      className="flex mr-[20px] max-w-[150px] align-top"
+                                                      onClick={handleLogout}
+                                                >
                                                       <FaUser className="text-4xl text-[#2673dd]" />
-
-                                                      <span className="text-[#666] pl-[10px] font-medium">
-                                                            Đăng nhập Tài khoản
-                                                      </span>
+                                                      {user ? (
+                                                            <div className="mr-[20px]">
+                                                                  <span className="text-[#666] pl-[10px] font-medium block">
+                                                                        Chào {user.name}
+                                                                  </span>
+                                                                  <span className="text-[#666] pl-[10px] font-medium block">
+                                                                        Đăng Xuất
+                                                                  </span>
+                                                            </div>
+                                                      ) : (
+                                                            <div className="mr-[20px]">
+                                                                  <span className="text-[#666] pl-[10px] font-medium block">
+                                                                        Đăng Nhập
+                                                                  </span>
+                                                                  <span className="text-[#666] pl-[10px] font-medium block">
+                                                                        Tài khoản
+                                                                  </span>
+                                                            </div>
+                                                      )}
                                                 </li>
                                           </Link>
                                           <Link to={'/cart'}>
@@ -56,9 +83,14 @@ export default function Header() {
                                                             </span>
                                                       </div>
 
-                                                      <span className="text-[#666] pl-[10px] font-medium">
-                                                            Giỏ hàng của bạn
-                                                      </span>
+                                                      <div className="mr-[20px]">
+                                                            <span className="text-[#666] pl-[10px] font-medium block">
+                                                                  Giỏ hàng
+                                                            </span>
+                                                            <span className="text-[#666] pl-[10px] font-medium block">
+                                                                  của bạn
+                                                            </span>
+                                                      </div>
                                                 </li>
                                           </Link>
                                     </ul>

@@ -28,7 +28,7 @@ export function SignUpForm() {
                         autoComplete={'off'}
                         onSubmit={handleRegister}
                   >
-                        <div className="input-form">
+                        <div className="w-[80%] mx-auto text-[14px]">
                               <div className="name">
                                     <input
                                           type="text"

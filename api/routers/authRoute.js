@@ -18,6 +18,7 @@ authRoute.post(
             _id: user._id,
             email: user.email,
             password: user.password,
+            name: user.name,
             token: generaToken(user._id),
             createAt: user.createdAt,
           });

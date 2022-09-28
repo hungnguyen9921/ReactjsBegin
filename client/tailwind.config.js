@@ -5,10 +5,17 @@ module.exports = {
                   flex: {
                         '1/2': '1 1 50%',
                   },
+                  backgroundImage: {
+                        'user-image': "url('./assests/images/iphone13.jpg')",
+                  },
                   colors: {
                         'regal-black': 'rgb(168, 165, 165)',
                         'minus-black': 'rgb(204, 204, 204)',
+                        'blur-black': 'rgba(0,0,0,.7)',
+                        'additional-black': 'rgba(85,85,85,.8)',
+                        'blur-grey': 'rgba(0,0,0,.02)',
                         'minus-red': 'rgba(255,66,79,.2);',
+                        'blur-orange': 'rgb(208 110 1 / 8%)',
                   },
                   width: {
                         '9/10': '90%',
@@ -19,6 +26,7 @@ module.exports = {
                         full: '100%',
                   },
                   boxShadow: {
+                        min: '0 1px 1px 0rgba(0,0,0,.03)',
                         '4xl': '0 1px 4px 0 #b3b3b3',
                         '3xl': '0 1px 4px 0 rgb(74 74 78/ 12%)',
                   },

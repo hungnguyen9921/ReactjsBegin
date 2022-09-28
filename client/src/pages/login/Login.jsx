@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SignUpForm } from './SignUpForm';
 import { LoginForm } from './LoginForm';
 import Footer from '../../components/Footer/Footer';
 import Logo from '../../assests/images/logo.png';
-import './Login.css';
 import LoginImg from '../../assests/images/login-img.png';
 function Login() {
       const [state, setstate] = useState('login');
@@ -17,11 +17,15 @@ function Login() {
       const status = state === 'login' ? 'Đăng Nhập' : 'Đăng Kí';
       return (
             <>
-                  <div className="w-full shadow-3xl  z-50 bg-white min-h-[56px] py-[20px]">
-                        <div className="w-9/10 mx-auto">
-                              <img src={Logo} alt={'Logo'} className="max-h-full max-w-full" />
+                  <header className="bg-white py-[20px] shadow-3xl relative z-10">
+                        <div className="max-w-8xl flex mx-auto items-center">
+                              <Link to={`/`}>
+                                    <div className="px-[15px] cursor-pointer">
+                                          <img src={Logo} alt={'Logo'} className="logo" />
+                                    </div>
+                              </Link>
                         </div>
-                  </div>
+                  </header>
                   <div className="relative flex bg-[#f6f6f6]">
                         <div className="flex content-center items-center w-full h-[80vh] bg-[#f6f6f6] mx-auto relative mt-[30px]">
                               <div className="flex w-[1200px] mx-auto">

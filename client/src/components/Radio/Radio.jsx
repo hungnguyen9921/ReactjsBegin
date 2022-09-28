@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default function Radio(props) {
-      const { selected, onChange, text, value } = props;
+      const { selected, onChange, text, value, className } = props;
       return (
             <div
-                  className="flex items-center cursor-pointer select-none"
+                  className={`flex items-center cursor-pointer select-none + ${className}`}
                   onClick={() => {
                         onChange(value);
                   }}

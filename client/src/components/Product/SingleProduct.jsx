@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruckMoving, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -9,22 +9,48 @@ import RotateImage from '../../assests/images/360preview.jpg';
 import DetailImage from '../../assests/images/detailpreview.jpg';
 import { HomeIcon, ProtectionIcon } from '../Icon/Icon';
 import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../../redux/Actions/CartActions';
 import { detailProduct } from '../../redux/Actions/ProductActions';
+import Toast from '../Toast/Toast';
 function SingleProduct() {
       const history = useNavigate();
       const dispatch = useDispatch();
       const params = useParams();
       const productDetails = useSelector((state) => state.productDetails);
-      const { loading, error, products } = productDetails;
+      const { loading, products } = productDetails;
+      const [count, setCount] = useState(1);
+      const [add, setAdd] = useState(false);
+      const [toast, setToast] = useState(false);
+      const [activeColor, setActiveColor] = useState('Đen');
+      const [activeRam, setActiveRam] = useState('32GB');
+      const [view, setView] = useState(false);
 
       useEffect(() => {
             dispatch(detailProduct(params.id));
       }, [dispatch, params.id]);
 
-      const [count, setCount] = useState(1);
-      const [activeColor, setActiveColor] = useState('Đen');
-      const [activeRam, setActiveRam] = useState('32GB');
-      const [view, setView] = useState(false);
+      useEffect(() => {
+            if (params.id && add) {
+                  dispatch(addToCart(params.id, count));
+                  setAdd(false);
+            }
+      }, [add]);
+
+      const TimeoutRef = useRef(null);
+
+      function ResetTimeout() {
+            if (TimeoutRef.current) {
+                  clearTimeout(TimeoutRef.current);
+            }
+      }
+
+      useEffect(() => {
+            ResetTimeout();
+            TimeoutRef.current = setTimeout(() => setToast(false), 3000);
+            return () => {
+                  ResetTimeout();
+            };
+      }, [toast]);
 
       const handelMinus = () => {
             setCount((count) => count - 1);
@@ -205,7 +231,7 @@ function SingleProduct() {
                                                                   32GB
                                                             </button>
                                                             <button
-                                                                  className="border-2 rounded px-[10px] py-[5px]"
+                                                                  className="border-2 rounded px-[15px] py-[5px]"
                                                                   style={
                                                                         activeRam === '64GB'
                                                                               ? {
@@ -224,7 +250,7 @@ function SingleProduct() {
                                                       </div>
                                                       <div className="">
                                                             <span>Số lượng</span>
-                                                            <div className="flex">
+                                                            <div className="flex items-end">
                                                                   <div className="text-[#333] rounded text-[14px] bg-white border w-[100px] h-[30px] leading-[30px]">
                                                                         <div
                                                                               className="border-r w-4/12 h-[30px] float-left cursor-pointer"
@@ -244,16 +270,25 @@ function SingleProduct() {
                                                                         </div>
                                                                         <input type="hidden" />
                                                                   </div>
-
                                                                   <button
-                                                                        onClick={AddtoCartHandle}
-                                                                        className="ml-[20px] bg-[#ff9600] text-white rounded px-[20px]"
+                                                                        onClick={() => {
+                                                                              setAdd(!add);
+                                                                              setToast(true);
+                                                                        }}
+                                                                        className="ml-[20px] bg-blur-orange text-[#ff9600] rounded-sm text-white px-[20px] py-[10px] border border-[#ff9600]"
                                                                   >
                                                                         <FontAwesomeIcon
                                                                               icon={faCartPlus}
                                                                               className="mr-[10px]"
                                                                         />
-                                                                        CHỌN MUA
+                                                                        Thêm vào giỏ hàng
+                                                                  </button>
+
+                                                                  <button
+                                                                        onClick={AddtoCartHandle}
+                                                                        className="ml-[20px] bg-[#ff9600] text-white rounded-sm px-[20px] py-[10px]"
+                                                                  >
+                                                                        Mua Ngay
                                                                   </button>
                                                             </div>
                                                       </div>
@@ -323,6 +358,7 @@ function SingleProduct() {
                               )}
                         </div>
                   </div>
+                  {toast ? <Toast /> : <> </>}
             </>
       ) : (
             <PreviewProduct onChange={setView} view={view} products={products} />
