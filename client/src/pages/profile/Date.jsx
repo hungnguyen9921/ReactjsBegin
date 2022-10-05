@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { NarrowDownIcon, NarrowUpIcon } from '../../components/Icon/Icon';
 
 export default function Date(props) {
-      const { showitem, onChange } = props;
-      const [data, setData] = useState(['9', '9', '2022']);
+      const dayOfBirth = useRef();
+      const monthOfBirth = useRef();
+      const yearOfBirth = useRef();
+
+      const { DateRef, showitem, onChange, birth, onCheck } = props;
+
       const Date = [...Array(31).keys()];
       const Month = [...Array(12).keys()];
       const Year = [...Array(120).keys()];
@@ -13,23 +17,27 @@ export default function Date(props) {
       const CurrentYear = getYear().toString().split(' ')[3];
 
       const HandleSelect = (item, index) => {
-            let tempArr = [...data];
+            let tempArr = [...birth];
             if (index === 0) {
-                  tempArr[0] = item + 1;
-                  setData(tempArr);
+                  tempArr[0] = `${item + 1}`;
+                  onCheck(tempArr);
             } else if (index === 1) {
-                  tempArr[1] = item + 1;
-                  setData(tempArr);
+                  tempArr[1] = `${item + 1}`;
+                  onCheck(tempArr);
             } else {
-                  tempArr[2] = CurrentYear - item;
-                  setData(tempArr);
+                  tempArr[2] = `${CurrentYear - item}`;
+                  onCheck(tempArr);
             }
       };
       return (
             <>
                   {showitem.map((item, index) => {
                         return (
-                              <div className="w-[32%] flex relative cursor-pointer" key={index}>
+                              <div
+                                    className="w-[32%] flex relative cursor-pointer"
+                                    key={index}
+                                    ref={DateRef}
+                              >
                                     <div
                                           className="w-full text-blur-black border rouned-sm h-[40px] bg-white flex items-center px-[15px] hover:border-[#ff9600]"
                                           onClick={() => {
@@ -43,16 +51,25 @@ export default function Date(props) {
                                           }}
                                     >
                                           {index === 0 ? (
-                                                <span className="flex-1 text-[14px]">
-                                                      {data[0]}
+                                                <span
+                                                      className="flex-1 text-[14px]"
+                                                      ref={dayOfBirth}
+                                                >
+                                                      {birth[0]}
                                                 </span>
                                           ) : index === 1 ? (
-                                                <span className="flex-1 text-[14px]">
-                                                      Tháng {data[1]}
+                                                <span
+                                                      className="flex-1 text-[14px]"
+                                                      ref={monthOfBirth}
+                                                >
+                                                      Tháng {birth[1]}
                                                 </span>
                                           ) : (
-                                                <span className="flex-1 text-[14px]">
-                                                      Năm {data[2]}
+                                                <span
+                                                      className="flex-1 text-[14px]"
+                                                      ref={yearOfBirth}
+                                                >
+                                                      Năm {birth[2]}
                                                 </span>
                                           )}
 

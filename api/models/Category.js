@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const CategorySchema = new mongoose.Schema({
-  productId: {
+  CategoryId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Product",
   },

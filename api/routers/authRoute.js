@@ -19,6 +19,9 @@ authRoute.post(
             email: user.email,
             password: user.password,
             name: user.name,
+            phone: user.phone,
+            sex: user.sex,
+            dateofbirth: user.dateofbirth,
             token: generaToken(user._id),
             createAt: user.createdAt,
           });
@@ -65,6 +68,25 @@ authRoute.get(
     } else {
       res.status(400);
       throw new Error("User not found");
+    }
+  })
+);
+
+authRoute.put(
+  "/profile",
+  protect,
+  asyncHandler(async (req, res) => {
+    try {
+      const newUser = new User(req.body);
+      if (!newUser) {
+        res.status(400);
+        throw new Error("Email Exist");
+      } else {
+        const savedUser = await User.save(newUser);
+        res.status(200).json(savedUser);
+      }
+    } catch (error) {
+      res.status(500).json(error);
     }
   })
 );

@@ -23,6 +23,12 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    sex: {
+      type: String,
+    },
+    dateofbirth: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

@@ -12,9 +12,13 @@ const ImportData = express.Router();
 ImportData.post(
   "/user",
   asyncHandler(async (req, res) => {
-    await User.remove({});
-    const ImportUser = await User.insertMany(users);
-    res.send({ ImportUser });
+    try {
+      await User.remove({});
+      const ImportUser = await User.insertMany(users);
+      res.send({ ImportUser });
+    } catch (error) {
+      console.log(error);
+    }
   })
 );
 

@@ -49,6 +49,24 @@ const AuthReducer = (state, action) => {
                         error: action.payload,
                   };
             }
+            case 'UPDATE_START': {
+                  return {
+                        user: action.payload,
+                        error: false,
+                  };
+            }
+            case 'UPDATE_SUCCESS': {
+                  return {
+                        user: action.payload,
+                        error: false,
+                  };
+            }
+            case 'UPDATE_FAILURE': {
+                  return {
+                        user: null,
+                        error: action.payload,
+                  };
+            }
             default: {
                   return state;
             }
