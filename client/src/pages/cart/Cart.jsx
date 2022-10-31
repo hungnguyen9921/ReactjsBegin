@@ -4,7 +4,6 @@ import Map from '../../components/Location/Map';
 import EmptyCard from '../../assests/images/emptycard.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import Header from '../../components/Navbar/Header';
 import Radio from '../../components/Radio/Radio';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -35,7 +34,6 @@ export default function Cart() {
 
       return (
             <>
-                  <Header value={cartItems.length} />
                   <div className="w-9/20 mx-auto text-[14px]">
                         <div className="flex justify-between mt-[30px] mb-[10px]">
                               <Link

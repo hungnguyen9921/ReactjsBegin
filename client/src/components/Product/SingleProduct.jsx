@@ -67,7 +67,6 @@ function SingleProduct() {
 
       return !view ? (
             <>
-                  <Header />
                   <div className="mt-[50px] pb-[30px]">
                         <div className="max-w-8xl mx-auto pl-[10px] bg-white rounded shadow-3xl">
                               {!loading ? (
@@ -275,7 +274,7 @@ function SingleProduct() {
                                                                               setAdd(!add);
                                                                               setToast(true);
                                                                         }}
-                                                                        className="ml-[20px] bg-blur-orange text-[#ff9600] rounded-sm text-white px-[20px] py-[10px] border border-[#ff9600]"
+                                                                        className="ml-[20px] bg-blur-orange text-[#ff9600] rounded-sm px-[20px] py-[10px] border border-[#ff9600]"
                                                                   >
                                                                         <FontAwesomeIcon
                                                                               icon={faCartPlus}

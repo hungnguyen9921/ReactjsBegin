@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Navbar/Header';
 import { AuthContext } from '../../context/AuthProvider';
 import { EditIcon } from '../../components/Icon/Icon';
 import User from '../../assests/images/user.png';
@@ -72,7 +70,6 @@ export default function Profile() {
 
       return (
             <>
-                  <Header />
                   <div className="mt-[40px] pb-[30px]">
                         <div className="max-w-8xl mx-auto pl-[10px]">
                               <div className="flex pb-[40px]">
@@ -120,7 +117,6 @@ export default function Profile() {
                               </div>
                         </div>
                   </div>
-                  <Footer />
             </>
       );
 }
