@@ -18,7 +18,7 @@ function Map() {
 
       const { isLoaded } = useJsApiLoader({
             id: 'google-map-script',
-            googleMapsApiKey: 'AIzaSyB6t74K1wITNrEsgI6T2djPdn7S8BktLLU',
+            googleMapsApiKey: 'AIzaSyB9FkHGUJ76iocGxhJe6jxK_cW8xCn60AI',
       });
 
       const [map, setMap] = React.useState(null);
@@ -33,6 +33,7 @@ function Map() {
             setMap(null);
       }, []);
 
+      console.log(map);
       return isLoaded ? (
             <>
                   <div className="py-[10px]">
@@ -46,7 +47,7 @@ function Map() {
                   <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
-                        zoom={1}
+                        zoom={12}
                         onLoad={onLoad}
                         onUnmount={onUnmount}
                         disableDefaultUI={true}

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruckMoving, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { useParams, useNavigate } from 'react-router-dom';
-import Header from '../Navbar/Header';
 import Loading from '../Loading/Loading';
 import PreviewProduct from './PreviewProduct';
 import RotateImage from '../../assests/images/360preview.jpg';

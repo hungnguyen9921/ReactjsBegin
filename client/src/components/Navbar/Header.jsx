@@ -81,9 +81,12 @@ export default function Header() {
                                                       </div>
                                                 ) : (
                                                       <div className="mr-[20px]">
-                                                            <span className="text-[#666] pl-[10px] font-medium block">
-                                                                  Đăng Nhập
-                                                            </span>
+                                                            <Link to={'/login'}>
+                                                                  <span className="text-[#666] pl-[10px] font-medium block">
+                                                                        Đăng Nhập
+                                                                  </span>
+                                                            </Link>
+
                                                             <span className="text-[#666] pl-[10px] font-medium block">
                                                                   Tài khoản
                                                             </span>

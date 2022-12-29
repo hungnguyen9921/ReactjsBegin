@@ -34,7 +34,7 @@ export default function Cart() {
 
       return (
             <>
-                  <div className="w-9/20 mx-auto text-[14px]">
+                  <div className="w-9/20 mx-auto text-[14px] mb-12">
                         <div className="flex justify-between mt-[30px] mb-[10px]">
                               <Link
                                     className="text-[#288ad6] before:content-[''] before:w-[8px] before:h-[8px] before:border-t before:border-l before:border-[#288ad6] before:inline-block before:mr-[3px]  before:rotate-[-45deg]"
