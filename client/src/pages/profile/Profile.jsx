@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { EditIcon } from '../../components/Icon/Icon';
 import User from '../../assests/images/user.png';
@@ -10,7 +11,13 @@ import ProfileLink from '../../components/Profile/ProfileLink';
 import ProfileInfo from '../../components/Profile/ProfileInfo';
 export default function Profile() {
       const { user } = useContext(AuthContext);
-      console.log(user, 1);
+      const navigate = useNavigate();
+      useEffect(() => {
+            if (!user) {
+                  navigate('/login');
+            }
+      }, [user, navigate]);
+
       const dataLink = [
             {
                   path: '/user/profile',

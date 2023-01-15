@@ -62,7 +62,7 @@ export default function Header() {
                                           </Link>
 
                                           <li className="flex mr-[20px] max-w-[150px] align-top">
-                                                <Link to={'/user/profile'}>
+                                                <Link to={user ? '/user/profile' : '/login'}>
                                                       <FaUser className="text-4xl text-[#2673dd]" />
                                                 </Link>
                                                 {user ? (

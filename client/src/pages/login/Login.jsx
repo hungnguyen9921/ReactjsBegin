@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SignUpForm } from './SignUpForm';
 import { LoginForm } from './LoginForm';
 import LoginImg from '../../assests/images/login-img.png';
+import { AuthContext } from '../../context/AuthProvider';
 function Login() {
+      const { user: currentUser } = useContext(AuthContext);
+      const navigate = useNavigate();
+      useEffect(() => {
+            if (currentUser) {
+                  navigate('/');
+            }
+      }, [currentUser, navigate]);
+
       const [state, setstate] = useState('login');
       const handleClick1 = () => {
             setstate('login');
