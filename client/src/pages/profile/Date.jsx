@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { NarrowDownIcon, NarrowUpIcon } from '../../components/Icon/Icon';
 
 export default function Date(props) {
@@ -46,6 +46,7 @@ export default function Date(props) {
                                                       item.id === index && item.isShow === false
                                                             ? (item.isShow = true)
                                                             : (item.isShow = false);
+                                                      return tempArr;
                                                 });
                                                 onChange(tempArr);
                                           }}

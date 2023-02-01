@@ -11,7 +11,7 @@ export default function ProfileInfo(props) {
       // const tempBirth = user.dateofbirth.split('/');
       // const [birth, setBirth] = useState([tempBirth[0], tempBirth[1], tempBirth[2]]);
       const [birth, setBirth] = useState(['9', '9', '2001']);
-      const { user, error, dispatch } = useContext(AuthContext);
+      const { user, dispatch } = useContext(AuthContext);
       console.log(user);
       const handelSex = (e) => {
             // setSex(e);

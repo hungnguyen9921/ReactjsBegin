@@ -1,5 +1,13 @@
 import React, { useRef } from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import {
+      Combobox,
+      ComboboxInput,
+      ComboboxPopover,
+      ComboboxList,
+      ComboboxOption,
+} from '@reach/combobox';
+import '@reach/combobox/styles.css';
 import Loading from '../Loading/Loading';
 
 const containerStyle = {
@@ -23,17 +31,15 @@ function Map() {
 
       const [map, setMap] = React.useState(null);
 
-      const onLoad = React.useCallback(function callback(map) {
-            const bounds = new window.google.maps.LatLngBounds(center);
-            map.fitBounds(bounds);
-            setMap(map);
-      }, []);
+      // const onLoad = React.useCallback(function callback(map) {
+      //       const bounds = new window.google.maps.LatLngBounds(center);
+      //       map.fitBounds(bounds);
+      //       setMap(map);
+      // }, []);
 
       const onUnmount = React.useCallback(function callback(map) {
             setMap(null);
       }, []);
-
-      console.log(map);
       return isLoaded ? (
             <>
                   <div className="py-[10px]">
@@ -47,9 +53,9 @@ function Map() {
                   <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
-                        zoom={12}
-                        onLoad={onLoad}
+                        // onLoad={onLoad}
                         onUnmount={onUnmount}
+                        zoom={12}
                         disableDefaultUI={true}
                   >
                         <></>

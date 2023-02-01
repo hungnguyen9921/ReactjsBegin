@@ -52,6 +52,8 @@ export default function UserProduct() {
                                                       </strong>
                                                 </div>
                                           );
+                                    } else {
+                                          return <></>;
                                     }
                               })}
                         </div>

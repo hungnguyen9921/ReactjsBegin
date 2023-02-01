@@ -10,7 +10,7 @@ export default function PreviewProduct(props) {
             <>
                   <div className="w-full max-h-[100vh] bg-white">
                         <div className="w-8/12 mx-auto h-[100px] flex-col py-[20px] bg-white">
-                              <div className="flex justify-between w-full items-center flex pr-[20px] mb-[10px]">
+                              <div className="justify-between w-full items-center flex pr-[20px] mb-[10px]">
                                     <div className="flex items-center">
                                           <img width={65} src={products.image} alt="" />
                                           <div className="flex-col w-full">
