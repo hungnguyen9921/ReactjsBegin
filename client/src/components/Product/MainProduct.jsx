@@ -25,7 +25,11 @@ export default function MainProduct() {
                                     <div className="grid grid-cols-10 border-t border-l rounded">
                                           {products.map((product, Index) => {
                                                 if (product.numReviews !== 0) {
-                                                      return <div key={Index}> </div>;
+                                                      return (
+                                                            <React.Fragment key={Index}>
+                                                                  {' '}
+                                                            </React.Fragment>
+                                                      );
                                                 } else {
                                                       return (
                                                             <div
