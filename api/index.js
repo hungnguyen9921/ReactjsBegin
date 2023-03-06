@@ -4,7 +4,6 @@ import path from "path";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoute from "./routers/authRoute.js";
-import ImportData from "./routers/dataImported.js";
 import productRoute from "./routers/productRoute.js";
 
 dotenv.config();
@@ -23,7 +22,7 @@ mongoose
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 app.use(
   express.urlencoded({
@@ -34,18 +33,14 @@ app.use(
 app.use(express.json());
 app.use(cor());
 
-//// Router /////
-
-//// SINGLE PRODUCT ///
-
-app.use("/api/import", ImportData);
 app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
 
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "../client/build")));
-app.get("*", (req, res) =>
-  res.sendFile(path.join(__dirname, "../client/build/index.html"))
+app.use(express.static(path.join(__dirname, "./client/build")));
+
+app.get("/", (req, res) =>
+  res.sendFile(path.join(__dirname, "./client/build/index.html"))
 );
 
 app.listen(PORT, () => {
